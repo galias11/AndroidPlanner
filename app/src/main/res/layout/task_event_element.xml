@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="100dp"
+    android:layout_width="match_parent"
+    android:background="#33ffffff"
+    android:orientation="horizontal"
+    android:weightSum="100">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="75"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/event_element_title"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="@drawable/textlines"
+            android:text="This is the task's title"/>
+
+        <TextView
+            android:id="@+id/event_element_description"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textSize="14sp"
+            android:text="This is the current task's description"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="100"
+            android:gravity="center_vertical|left"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="40"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/event_element_planned_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textAlignment="gravity"
+                    android:text="DD/MM/AAAA"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="60"
+                android:layout_height="match_parent"
+                android:weightSum="90">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="30"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/event_element_active_indicator"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@android:drawable/ic_menu_close_clear_cancel"
+                        android:tint="@color/grey_500"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="30"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/event_element_closed_indicator"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@android:drawable/ic_partial_secure"
+                        android:tint="@color/grey_500"
+                        />
+
+                </RelativeLayout>
+
+                z<RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="30"
+                android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/event_element_done_indicator"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@android:drawable/checkbox_off_background"
+                        android:tint="@color/grey_500"/>
+            </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="25"
+        android:layout_height="match_parent"
+        android:weightSum="100"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="50"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50">
+
+                <ImageButton
+                    android:id="@+id/event_element_view"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:tint="@color/blue_A700"
+                    android:background="@android:drawable/ic_search_category_default"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50">
+
+                <ImageButton
+                    android:id="@+id/event_element_close"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:tint="@color/blue_A700"
+                    android:background="@android:drawable/ic_lock_lock"/>
+
+            </RelativeLayout>
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+
+            <ProgressBar
+                android:id="@+id/event_progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/circular_shape_01"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="75"
+                android:progressDrawable="@drawable/circular_progress_bar">
+
+            </ProgressBar>
+
+            <TextView
+                android:id="@+id/event_progress_bar_advance_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:labelFor="@id/task_progress_bar"
+                android:background="@android:color/transparent"
+                android:text="55%"/>
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

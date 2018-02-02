@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/loading_color_gradient_01">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:background="@color/grey_800"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/loading_screen_text_01"
+                    android:textAlignment="gravity"
+                    android:textSize="30dp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="85"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="100">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="10"
+                        android:background="@color/grey_800">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@color/grey_800"
+                            android:text="CREAR NUEVA TAREA"
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+
+                    </RelativeLayout>
+
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="5" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="15"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <android.support.v4.widget.Space
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/new_task_title"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="top"
+                            android:layout_weight="8"
+                            android:maxLength="25"
+                            android:lines="2"
+                            android:hint="Titulo"
+                            android:textSize="18sp" />
+
+                        <android.support.v4.widget.Space
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="2.5" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="25"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <android.support.v4.widget.Space
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/new_task_desc"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:gravity="top"
+                            android:layout_weight="8"
+                            android:hint="Descripción"
+                            android:maxLength="200"
+                            android:lines="6"
+                            android:textSize="18sp" />
+
+                        <android.support.v4.widget.Space
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="5"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="15"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <android.support.v4.widget.Space
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <android.support.v7.widget.AppCompatSpinner
+                            android:id="@+id/new_task_categ_spinner"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:hint="Categoria">
+
+                        </android.support.v7.widget.AppCompatSpinner>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="match_parent"
+                            >
+
+                            <ImageButton
+                                android:id="@+id/new_task_add_category_button"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:adjustViewBounds="true"
+                                android:scaleType="centerCrop"
+                                android:layout_centerVertical="true"
+                                android:layout_centerHorizontal="true"
+                                app:srcCompat="@android:drawable/ic_input_add"
+                                android:background="@android:color/transparent"
+                                android:tint="@color/blue_A700"
+                                android:contentDescription="new category"/>
+
+                        </RelativeLayout>
+
+
+                        <android.support.v4.widget.Space
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/new_task_cancel_button"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:background="@android:drawable/ic_menu_close_clear_cancel"
+                        android:backgroundTint="@color/red_900"/>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/new_task_save_button"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:background="@drawable/save_button_mode_color" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="5"
+                android:background="@color/grey_800"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
