@@ -5,11 +5,14 @@ import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import java.util.GregorianCalendar;
 
 import ar.com.galias.androidplanner.Controller.Controller;
 import ar.com.galias.androidplanner.R;
@@ -54,6 +57,32 @@ public class Task_view_screen implements Iface_view_task_screen{
         this.add_event_button = (ImageButton) this.view.findViewById(R.id.task_view_new_event);
 
         setController(controller);
+
+        setUpEvents();
+    }
+
+    private void setUpEvents(){
+        LinearLayout events_area = this.getView().findViewById(R.id.task_event_area);
+        Event_element e1 = new Event_element(viewContext, 1, "Evento de prueba 1",
+                "Esto es un evento de prueba.", GregorianCalendar.getInstance(),
+                35, this.controller);
+        Event_element e2 = new Event_element(viewContext, 2, "Evento de prueba 2",
+                "Esto es un evento de prueba.", GregorianCalendar.getInstance(),
+                95, this.controller);
+        Event_element e3 = new Event_element(viewContext, 3, "Evento de prueba 3",
+                "Esto es un evento de prueba.", GregorianCalendar.getInstance(),
+                60, this.controller);
+
+        events_area.addView(e1.getElementView());
+        events_area.addView(e1.getSpaceView());
+
+        events_area.addView(e2.getElementView());
+        events_area.addView(e2.getSpaceView());
+
+        events_area.addView(e3.getElementView());
+        events_area.addView(e3.getSpaceView());
+
+
     }
 
     @Override

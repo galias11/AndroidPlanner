@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="100dp"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#33ffffff"
     android:orientation="horizontal"
     android:weightSum="100">
@@ -60,45 +61,61 @@
 
                 <RelativeLayout
                     android:layout_width="0dp"
-                    android:layout_weight="30"
+                    android:layout_weight="15"
                     android:layout_height="match_parent">
-
-                    <ImageButton
-                        android:id="@+id/event_element_active_indicator"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@android:drawable/ic_menu_close_clear_cancel"
-                        android:tint="@color/grey_500"/>
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="0dp"
-                    android:layout_weight="30"
+                    android:layout_weight="20"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/event_element_active_indicator"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+                        android:tint="@color/grey_700"
+                        android:background="@android:color/transparent"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="20"
                     android:layout_height="match_parent">
 
                     <ImageButton
                         android:id="@+id/event_element_closed_indicator"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@android:drawable/ic_partial_secure"
-                        android:tint="@color/grey_500"
-                        />
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:srcCompat="@android:drawable/ic_partial_secure"
+                        android:tint="@color/grey_700"
+                        android:background="@android:color/transparent"/>
 
                 </RelativeLayout>
 
-                z<RelativeLayout
+                <RelativeLayout
                 android:layout_width="0dp"
-                android:layout_weight="30"
+                android:layout_weight="20"
                 android:layout_height="match_parent">
 
                     <ImageButton
                         android:id="@+id/event_element_done_indicator"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@android:drawable/checkbox_off_background"
-                        android:tint="@color/grey_500"/>
-            </RelativeLayout>
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:srcCompat="@android:drawable/checkbox_off_background"
+                        android:tint="@color/grey_700"
+                        android:background="@android:color/transparent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="15"
+                    android:layout_height="match_parent">
+
+                </RelativeLayout>
 
             </LinearLayout>
 
@@ -128,12 +145,13 @@
 
                 <ImageButton
                     android:id="@+id/event_element_view"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:tint="@color/blue_A700"
-                    android:background="@android:drawable/ic_search_category_default"/>
+                    app:srcCompat="@android:drawable/ic_menu_edit"
+                    android:background="@android:color/transparent"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -143,12 +161,13 @@
 
                 <ImageButton
                     android:id="@+id/event_element_close"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:tint="@color/blue_A700"
-                    android:background="@android:drawable/ic_lock_lock"/>
+                    app:srcCompat="@android:drawable/ic_lock_lock"
+                    android:background="@android:color/transparent"/>
 
             </RelativeLayout>
 
@@ -171,7 +190,7 @@
 
 
             <ProgressBar
-                android:id="@+id/event_progress_bar"
+                android:id="@+id/event_element_progress_bar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -186,12 +205,12 @@
             </ProgressBar>
 
             <TextView
-                android:id="@+id/event_progress_bar_advance_text"
+                android:id="@+id/event_element_advance_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textStyle="bold"
                 android:labelFor="@id/task_progress_bar"
                 android:background="@android:color/transparent"

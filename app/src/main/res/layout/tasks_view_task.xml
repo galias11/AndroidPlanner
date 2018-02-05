@@ -223,7 +223,7 @@
 
                             <android.support.v4.widget.Space
                                 android:layout_width="match_parent"
-                                android:layout_height="5dp"/>
+                                android:layout_height="10dp"/>
 
                             <ScrollView
                                 android:layout_width="match_parent"
