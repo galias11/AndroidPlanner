@@ -16,17 +16,20 @@
 
     <string name="Task_element_first_date"><b>Primer venc:</b> XX/XX/XXXX</string>
 
-    <string-array name="filters_array">
-        <item> filterA </item>
-        <item> filterB </item>
-        <item> filterC </item>
-        <item> filterD </item>
+    <string-array name="task_event_new_pond_spinner">
+        <item>Muy alta</item>
+        <item>Alta</item>
+        <item>Media</item>
+        <item>Baja</item>
+        <item>Muy baja</item>
     </string-array>
 
-    <string-array name="orders_array">
-        <item> orderA </item>
-        <item> orderB </item>
-        <item> orderC </item>
-        <item> orderD </item>
+    <string-array name="task_event_new_frec_cant_spinner">
+        <item>Días</item>
+        <item>Semanas</item>
+        <item>Meses</item>
+        <item>Años</item>
     </string-array>
+
+
 </resources>

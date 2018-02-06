@@ -10,4 +10,7 @@
     <style name="tab_text_style">
         <item name="android:textColor">#CCC</item>
     </style>
+
+
+
 </resources>
