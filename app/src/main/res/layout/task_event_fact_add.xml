@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/loading_color_gradient_01">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:background="@color/grey_800"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/loading_screen_text_01"
+                    android:textAlignment="gravity"
+                    android:textSize="30dp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="85"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="100">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="10"
+                        android:background="@color/grey_800">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@color/grey_800"
+                            android:text="AGREGAR HITO"
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="90"
+                        android:orientation="horizontal"
+                        android:weightSum="100">
+
+                        <android.support.v4.widget.Space
+                            android:layout_width="0dp"
+                            android:layout_weight="5"
+                            android:layout_height="match_parent" />
+
+
+                        <ScrollView
+                            android:layout_width="0dp"
+                            android:layout_weight="90"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="470dp"
+                                android:orientation="vertical">
+
+                                <android.support.v4.widget.Space
+                                    android:layout_width="match_parent"
+                                    android:layout_height="60dp" />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:orientation="horizontal"
+                                    android:weightSum="100">
+
+                                    <android.support.design.widget.TextInputEditText
+                                        android:id="@+id/new_task_event_fact_date"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="top"
+                                        android:layout_weight="45"
+                                        android:hint="Fecha de realización"
+                                        android:lines="1"
+                                        android:maxLength="10"
+                                        android:textSize="14sp" />
+
+                                    <android.support.v4.widget.Space
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="10" />
+
+                                    <android.support.design.widget.TextInputEditText
+                                        android:id="@+id/new_task_event_fact_quantity"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="top"
+                                        android:layout_weight="45"
+                                        android:hint="Cantidad realzada"
+                                        android:lines="2"
+                                        android:maxLength="10"
+                                        android:textSize="14sp" />
+
+                                </LinearLayout>
+
+                                <android.support.v4.widget.Space
+                                    android:layout_width="match_parent"
+                                    android:layout_height="10dp" />
+
+                                <android.support.design.widget.TextInputEditText
+                                    android:id="@+id/new_task_event_fact_obs"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="200dp"
+                                    android:layout_gravity="top"
+                                    android:hint="Observaciones"
+                                    android:lines="6"
+                                    android:maxLength="400"
+                                    android:textSize="14sp" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="150dp"
+                                    android:gravity="bottom">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="100dp"
+                                        android:orientation="horizontal"
+                                        android:weightSum="100">
+
+                                        <RelativeLayout
+                                            android:layout_width="0dp"
+                                            android:layout_weight="50"
+                                            android:layout_height="match_parent">
+
+                                            <ImageButton
+                                                android:id="@+id/task_event_new_cancel_button"
+                                                android:layout_width="50dp"
+                                                android:layout_height="50dp"
+                                                android:scaleType="centerCrop"
+                                                android:layout_centerInParent="true"
+                                                app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+                                                android:tint="@color/red_900"
+                                                android:background="android:color/transparent"/>
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:layout_width="0dp"
+                                            android:layout_weight="50"
+                                            android:layout_height="match_parent">
+
+                                            <ImageButton
+                                                android:id="@+id/task_event_new_cancel_accept"
+                                                android:layout_width="50dp"
+                                                android:layout_height="50dp"
+                                                android:scaleType="centerCrop"
+                                                android:layout_centerInParent="true"
+                                                app:srcCompat="@android:drawable/ic_menu_save"
+                                                android:tint="@color/green_600"
+                                                android:background="android:color/transparent"/>
+
+                                        </RelativeLayout>
+
+                                    </LinearLayout>
+
+                                </RelativeLayout>
+
+
+                            </LinearLayout>
+
+
+                        </ScrollView>
+
+                        <android.support.v4.widget.Space
+                            android:layout_width="0dp"
+                            android:layout_weight="5"
+                            android:layout_height="match_parent" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="5"
+                android:background="@color/grey_800"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
