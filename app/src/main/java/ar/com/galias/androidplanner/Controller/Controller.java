@@ -25,10 +25,12 @@ import ar.com.galias.androidplanner.GUI.Iface_main_screen;
 import ar.com.galias.androidplanner.GUI.Iface_new_category_screen;
 import ar.com.galias.androidplanner.GUI.Iface_new_task_screen;
 import ar.com.galias.androidplanner.GUI.Iface_screen;
+import ar.com.galias.androidplanner.GUI.Iface_task_event_new_screen;
 import ar.com.galias.androidplanner.GUI.Iface_view_task_screen;
 import ar.com.galias.androidplanner.GUI.Loading_screen;
 import ar.com.galias.androidplanner.GUI.Main_screen;
 import ar.com.galias.androidplanner.GUI.Task_element;
+import ar.com.galias.androidplanner.GUI.Task_event_new_screen;
 import ar.com.galias.androidplanner.GUI.Task_new_screen;
 import ar.com.galias.androidplanner.GUI.Task_view_screen;
 import ar.com.galias.androidplanner.Lang.Lang;
@@ -52,6 +54,7 @@ public class Controller extends AppCompatActivity {
     private Iface_new_task_screen newTaskScreen;
     private Iface_new_category_screen newCategoryScreen;
     private Iface_view_task_screen viewTaskScreen;
+    private Iface_task_event_new_screen newTaskEventScreen;
 
     private ViewFlipper viewManager;
     private Lang lang_module;
@@ -61,6 +64,18 @@ public class Controller extends AppCompatActivity {
     public static final int SCREEN_NEW_TASK = 2;
     public static final int SCREEN_NEW_CATEGORY = 3;
     public static final int SCREEN_VIEW_TASK = 4;
+    public static final int SCREEN_NEW_TASK_EVENT = 5;
+
+    public static final int NOTIF_UD_DAY = 0;
+    public static final int NOTIF_UD_WEEK = 1;
+    public static final int NOTIF_UD_MONTH = 2;
+    public static final int NOTIF_UD_YEAR = 3;
+
+    public static final int PRIORITY_VERY_HIGH = 100;
+    public static final int PRIORITY_HIGH = 75;
+    public static final int PRIORITY_MEDIUM = 50;
+    public static final int PRIORITY_LOW = 25;
+    public static final int PRIORITY_VERY_LOW = 10;
 
     private final int guiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
             | View.SYSTEM_UI_FLAG_FULLSCREEN
@@ -93,16 +108,19 @@ public class Controller extends AppCompatActivity {
         this.newTaskScreen = new Task_new_screen(appContext, this, SCREEN_NEW_TASK);
         this.newCategoryScreen = new Category_new_screen(appContext, this, SCREEN_NEW_CATEGORY);
         this.viewTaskScreen = new Task_view_screen(appContext, this, SCREEN_VIEW_TASK);
+        this.newTaskEventScreen = new Task_event_new_screen(appContext, this, SCREEN_NEW_TASK_EVENT);
 
         this.mainScreen.hide();
         this.newTaskScreen.hide();
         this.newCategoryScreen.hide();
         this.viewTaskScreen.hide();
+        this.newTaskEventScreen.hide();
 
         this.viewManager.addView(this.mainScreen.getView(), new ViewSwitcher.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         this.viewManager.addView(this.newTaskScreen.getView(), new ViewSwitcher.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         this.viewManager.addView(this.newCategoryScreen.getView(), new ViewSwitcher.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         this.viewManager.addView(this.viewTaskScreen.getView(), new ViewSwitcher.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        this.viewManager.addView(this.newTaskEventScreen.getView(), new ViewSwitcher.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
     }
 
@@ -178,6 +196,13 @@ public class Controller extends AppCompatActivity {
                     case R.id.task_view_return:
                         viewTaskScreen.clearScreen();
                         setCurrentScreen(mainScreen);
+                        break;
+                    case R.id.task_view_new_event:
+                        setCurrentScreen(newTaskEventScreen);
+                        break;
+                    case R.id.new_task_event_cancel_button:
+                        newTaskEventScreen.clearScreen();
+                        setCurrentScreen(viewTaskScreen);
                     default:
                         break;
                 }

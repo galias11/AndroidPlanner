@@ -164,9 +164,8 @@
                                                 android:layout_height="50dp"
                                                 android:scaleType="centerCrop"
                                                 android:layout_centerInParent="true"
-                                                app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
-                                                android:tint="@color/red_900"
-                                                android:background="android:color/transparent"/>
+                                                android:backgroundTint="@color/red_900"
+                                                android:background="@android:drawable/ic_menu_close_clear_cancel"/>
                                         </RelativeLayout>
 
                                         <RelativeLayout
@@ -180,9 +179,7 @@
                                                 android:layout_height="50dp"
                                                 android:scaleType="centerCrop"
                                                 android:layout_centerInParent="true"
-                                                app:srcCompat="@android:drawable/ic_menu_save"
-                                                android:tint="@color/green_600"
-                                                android:background="android:color/transparent"/>
+                                                android:background="@drawable/save_button_mode_color"/>
 
                                         </RelativeLayout>
 

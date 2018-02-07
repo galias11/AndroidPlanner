@@ -94,7 +94,7 @@
 
                                 <RelativeLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="600dp">
+                                    android:layout_height="500dp">
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
@@ -144,7 +144,7 @@
                                                 android:maxLength="10"
                                                 android:lines="1"
                                                 android:hint="Fecha planeada"
-                                                android:editable="false"
+                                                android:focusable="false"
                                                 android:textSize="14sp" />
 
                                             <android.support.v4.widget.Space
@@ -153,6 +153,7 @@
                                                 android:layout_height="match_parent" />
 
                                             <Spinner
+                                                android:id="@+id/new_task_event_priority_spinner"
                                                 android:layout_width="0dp"
                                                 android:layout_weight="40"
                                                 android:layout_height="match_parent"
@@ -173,6 +174,7 @@
                                             android:orientation="horizontal">
 
                                             <Spinner
+                                                android:id="@+id/new_task_event_notif_type_spinner"
                                                 android:layout_width="0dp"
                                                 android:layout_weight="50"
                                                 android:layout_height="match_parent"
@@ -186,7 +188,7 @@
                                                 android:layout_height="match_parent" />
 
                                             <android.support.design.widget.TextInputEditText
-                                                android:id="@+id/new_task_event_frec_quantity"
+                                                android:id="@+id/new_task_event_notif_quantity"
                                                 android:layout_width="0dp"
                                                 android:layout_weight="50"
                                                 android:layout_height="match_parent"
@@ -194,7 +196,7 @@
                                                 android:maxLength="10"
                                                 android:lines="1"
                                                 android:hint="Cantidad"
-                                                android:editable="false"
+                                                android:focusable="false"
                                                 android:textSize="14sp" />
 
 
@@ -219,7 +221,7 @@
                                                 android:maxLength="10"
                                                 android:lines="1"
                                                 android:hint="Cantidad"
-                                                android:editable="false"
+                                                android:focusable="false"
                                                 android:textSize="14sp" />
 
                                             <android.support.v4.widget.Space
@@ -244,7 +246,7 @@
 
                                         <android.support.v4.widget.Space
                                             android:layout_width="match_parent"
-                                            android:layout_height="10dp" />
+                                            android:layout_height="50dp" />
 
                                         <LinearLayout
                                             android:layout_width="match_parent"
@@ -258,14 +260,14 @@
                                                 android:layout_height="match_parent">
 
                                                 <ImageButton
-                                                    android:id="@+id/task_event_new_cancel_button"
+                                                    android:id="@+id/new_task_event_cancel_button"
                                                     android:layout_width="50dp"
                                                     android:layout_height="50dp"
                                                     android:scaleType="centerCrop"
                                                     android:layout_centerInParent="true"
-                                                    app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
-                                                    android:tint="@color/red_900"
-                                                    android:background="android:color/transparent"/>
+                                                    android:backgroundTint="@color/red_900"
+                                                    android:background="@android:drawable/ic_menu_close_clear_cancel"/>
+
                                             </RelativeLayout>
 
                                             <RelativeLayout
@@ -274,14 +276,12 @@
                                                 android:layout_height="match_parent">
 
                                                 <ImageButton
-                                                    android:id="@+id/task_event_new_cancel_accept"
+                                                    android:id="@+id/new_task_event_save_button"
                                                     android:layout_width="50dp"
                                                     android:layout_height="50dp"
-                                                    android:scaleType="centerCrop"
+                                                    android:scaleType="fitStart"
                                                     android:layout_centerInParent="true"
-                                                    app:srcCompat="@android:drawable/ic_menu_save"
-                                                    android:tint="@color/green_600"
-                                                    android:background="android:color/transparent"/>
+                                                    android:background="@drawable/save_button_mode_color"/>
 
                                             </RelativeLayout>
 
