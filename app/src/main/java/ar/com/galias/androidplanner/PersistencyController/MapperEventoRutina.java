@@ -111,12 +111,12 @@ public class MapperEventoRutina extends Mapper{
     protected ArrayList<Mappeable> generateObjects(Cursor c) {
         ArrayList<Mappeable> resultSet = new ArrayList<Mappeable>();
         while(c.moveToNext()){
-            EventoRutina e = new EventoRutina(c.getString(get_table_pos(TABLE_01, ATT_TITULO)),
+            EventoRutina e = new EventoRutina(c.getLong(get_table_pos(TABLE_01, ATT_ID_EVENT)),
+                                              c.getString(get_table_pos(TABLE_01, ATT_TITULO)),
                                               c.getString(get_table_pos(TABLE_01, ATT_DESC)),
                                               getDateTime(c.getString(get_table_pos(TABLE_01, ATT_FEC_PLAN))),
                                               c.getInt(get_table_pos(TABLE_01, ATT_UD_FREC_NOTIF)),
                                               c.getInt(get_table_pos(TABLE_01, ATT_CANT_FREC_NOTIF)));
-            e.setId(c.getLong(get_table_pos(TABLE_01, ATT_ID_EVENT)));
             map_dependent_objects(e, OP_SELECT);
             resultSet.add(e);
         }

@@ -23,37 +23,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/AplicationLayerController.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/AplicationLayerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Categoria.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Categoria.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Evento.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Evento.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/EventoRutina.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/EventoRutina.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/EventoTarea.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/EventoTarea.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Hito.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Hito.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Plan.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Plan.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Rutina.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Rutina.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Tarea.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Tarea.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/Controller/Controller.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/Controller/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Category_new_screen.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Category_new_screen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Event_element.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Event_element.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Iface_main_screen.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Iface_main_screen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Iface_screen.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Iface_screen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Iface_task_event_new_screen.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Iface_task_event_new_screen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Iface_view_task_screen.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Iface_view_task_screen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Loading_screen.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Loading_screen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Main_screen.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Main_screen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Task_event_new_screen.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Task_event_new_screen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Task_new_screen.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Task_new_screen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Task_view_screen.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Task_view_screen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/Mappeable.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/Mappeable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/Mapper.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/Mapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperEventoRutina.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperEventoRutina.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperEventoTarea.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperEventoTarea.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperRutina.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperRutina.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperTarea.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperTarea.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/app_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/main_screen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/main_screen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/task_event_add.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/task_event_add.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/task_event_element.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/task_event_element.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperHito.java" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperHito.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -85,14 +63,57 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="254" column="48" lean-forward="false" selection-start-line="254" selection-start-column="48" selection-end-line="254" selection-end-column="48" />
+            <state relative-caret-position="263">
+              <caret line="238" column="61" lean-forward="false" selection-start-line="238" selection-start-column="61" selection-end-line="238" selection-end-column="61" />
               <folding>
-                <element signature="e#5257#11445#0" expanded="true" />
-                <element signature="e#11444#11445#0" expanded="true" />
-                <element signature="e#12005#12179#0" expanded="true" />
-                <element signature="e#12178#12179#0" expanded="true" />
+                <element signature="e#5257#11506#0" expanded="true" />
+                <element signature="e#11505#11506#0" expanded="true" />
+                <element signature="e#12066#12240#0" expanded="true" />
+                <element signature="e#12239#12240#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Evento.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Evento.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="50" column="35" lean-forward="false" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Hito.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Hito.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="45" column="13" lean-forward="false" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapperHito.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperHito.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="96" column="72" lean-forward="false" selection-start-line="96" selection-start-column="72" selection-end-line="96" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="34" lean-forward="false" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1851,8 +1872,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperCategoria.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperEventoRutina.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperHito.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Task_element.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/layout_borders_shape.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/line.xml" />
@@ -1876,7 +1895,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/main_screen.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Task_new_screen.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Category_new_screen.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/app_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Iface_main_screen.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Main_screen.java" />
@@ -1885,21 +1903,24 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/task_event_element.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Event_element.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/AplicationLayerController.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Plan.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Evento.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/EventoTarea.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/EventoRutina.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Hito.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Rutina.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Tarea.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Categoria.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/Mappeable.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/Mapper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Iface_view_task_screen.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/GUI/Task_view_screen.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperEventoTarea.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperTarea.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperRutina.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Rutina.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Tarea.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Plan.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Evento.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/EventoRutina.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperEventoRutina.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperEventoTarea.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Hito.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperHito.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/EventoTarea.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/Controller/Controller.java" />
       </list>
     </option>
@@ -1943,24 +1964,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="androidPlanner" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2035,28 +2038,6 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="GUI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="androidPlanner" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="androidplanner" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="AppLayer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2070,6 +2051,10 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidManifestsGroupNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -2077,7 +2062,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="device.picker.selection" value="Nexus_5X_API_27" />
+    <property name="device.picker.selection" value="YT9118A550" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26" />
   </component>
   <component name="RecentsManager">
@@ -2198,7 +2183,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1518223709694" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1518226397823" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2246,7 +2231,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1518223709695" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1518226397823" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2408,7 +2393,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1518223709695" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1518226397824" />
       </method>
     </configuration>
     <list size="2">
@@ -2548,15 +2533,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/new_task_event_pond_spinner.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="2" lean-forward="false" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/tasks_add_event.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/tasks_new_task.xml">
       <provider editor-type-id="android-designer2">
@@ -2721,17 +2697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="51" lean-forward="false" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_layout.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -2838,38 +2803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/EventoTarea.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="122" column="26" lean-forward="false" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Evento.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1054">
-          <caret line="51" column="27" lean-forward="false" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/EventoRutina.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="59" column="37" lean-forward="false" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Hito.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-148">
-          <caret line="36" column="27" lean-forward="false" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Categoria.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-335">
@@ -2882,30 +2815,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="71" column="49" lean-forward="false" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Rutina.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3315">
-          <caret line="255" column="27" lean-forward="false" selection-start-line="255" selection-start-column="27" selection-end-line="255" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Tarea.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="115" column="27" lean-forward="false" selection-start-line="115" selection-start-column="27" selection-end-line="115" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Plan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="31" column="27" lean-forward="false" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -2961,14 +2870,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperEventoTarea.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="164" column="105" lean-forward="false" selection-start-line="164" selection-start-column="105" selection-end-line="164" selection-end-column="105" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/Mapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2011">
@@ -2977,15 +2878,106 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Tarea.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="35" column="62" lean-forward="false" selection-start-line="35" selection-start-column="62" selection-end-line="35" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Rutina.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="54" column="99" lean-forward="false" selection-start-line="54" selection-start-column="99" selection-end-line="54" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Plan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="30" column="23" lean-forward="false" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperEventoRutina.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="118" column="102" lean-forward="false" selection-start-line="118" selection-start-column="102" selection-end-line="118" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperEventoTarea.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="133" column="75" lean-forward="false" selection-start-line="133" selection-start-column="75" selection-end-line="133" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/PersistencyController/MapperHito.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="96" column="72" lean-forward="false" selection-start-line="96" selection-start-column="72" selection-end-line="96" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="34" lean-forward="false" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/EventoTarea.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="51" column="27" lean-forward="false" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/EventoRutina.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="45" column="63" lean-forward="false" selection-start-line="45" selection-start-column="63" selection-end-line="45" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Evento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="50" column="35" lean-forward="false" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/AppLayer/Hito.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="45" column="13" lean-forward="false" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/galias/androidplanner/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="254" column="48" lean-forward="false" selection-start-line="254" selection-start-column="48" selection-end-line="254" selection-end-column="48" />
+        <state relative-caret-position="263">
+          <caret line="238" column="61" lean-forward="false" selection-start-line="238" selection-start-column="61" selection-end-line="238" selection-end-column="61" />
           <folding>
-            <element signature="e#5257#11445#0" expanded="true" />
-            <element signature="e#11444#11445#0" expanded="true" />
-            <element signature="e#12005#12179#0" expanded="true" />
-            <element signature="e#12178#12179#0" expanded="true" />
+            <element signature="e#5257#11506#0" expanded="true" />
+            <element signature="e#11505#11506#0" expanded="true" />
+            <element signature="e#12066#12240#0" expanded="true" />
+            <element signature="e#12239#12240#0" expanded="true" />
           </folding>
         </state>
       </provider>

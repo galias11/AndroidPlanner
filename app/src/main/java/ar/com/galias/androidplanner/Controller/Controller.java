@@ -235,7 +235,8 @@ public class Controller extends AppCompatActivity {
                             );
                             successMsg.setText("Evento creado y agregado a la tarea.");
                             successMsg.show();
-                            viewTaskScreen.clearScreen();
+                            viewTaskScreen.clearTasks();
+                            newTaskEventScreen.clearScreen();
                             load_task_events(current_task_id);
                             setCurrentScreen(viewTaskScreen);
                         } catch (PersistencyException ex_persist){

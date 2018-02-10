@@ -49,7 +49,6 @@ public abstract class Evento extends Mappeable implements Comparable{
     public Evento(String titulo, String desc, Calendar fecPlan, int ud_frec_notif,
                   int cant_frec_notif){
         super(Mappeable.ID_EVENTO);
-        super.setCreated();
         this.titulo = titulo;
         this.desc = desc;
         this.fecPlan = fecPlan;

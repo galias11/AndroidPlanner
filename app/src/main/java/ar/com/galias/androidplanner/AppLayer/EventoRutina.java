@@ -34,6 +34,37 @@ public class EventoRutina extends Evento{
     public EventoRutina(String titulo, String desc, Calendar fecPlan,
                         int ud_frec_notif, int cant_frec_notif){
         super(titulo, desc, fecPlan, ud_frec_notif, cant_frec_notif);
+        super.setCreated();
+        realizado = false;
+        obs = null;
+    }
+
+    /**
+     * Constructor. This constructor is intended to be used by mappers, it doesn't mark object as
+     * created.
+     * @param id
+     * (long) Event's id. Must be a non negative integer value.
+     * @param titulo
+     * (String) Event's title. Must be a non null/empty string (Max. 25 chars).
+     * (PRECOND: Must be checked by the caller).
+     * @param desc
+     * (String) Event's description. Could be a null/empty string (Max. 200 chars).
+     * (PRECOND: Must be checked by the caller).
+     * @param fecPlan
+     * (Calendar) Event's planned realization date. Must be a non null Calendar object.
+     * (PRECOND: Must be checked by the caller).
+     * @param ud_frec_notif
+     * (int) Event's notification frequency unit. Must be one of class FREC_NOTIF_TYPE constants.
+     * (PRECOND: Must be checked by the caller).
+     * @param cant_frec_notif
+     * (int) Event's notification quantity. Multiplies the unit to get notification time. Must be
+     * a positive integer value.
+     * (PRECOND: Must be checked by the caller).
+     */
+    public EventoRutina(long id, String titulo, String desc, Calendar fecPlan,
+                        int ud_frec_notif, int cant_frec_notif){
+        super(titulo, desc, fecPlan, ud_frec_notif, cant_frec_notif);
+        this.setId(id);
         realizado = false;
         obs = null;
     }

@@ -90,11 +90,11 @@ public class MapperHito extends  Mapper{
         ArrayList<Mappeable> resultSet = new ArrayList<Mappeable>();
         while(c.moveToNext()){
             Hito new_hito = new Hito(
+                    c.getLong(get_table_pos(TABLE_01, ATT_ID_HITO)),
                     getDateTime(c.getString(get_table_pos(TABLE_01, ATT_FEC))),
                     c.getDouble(get_table_pos(TABLE_01, ATT_CANT_REAL)),
                     c.getString(get_table_pos(TABLE_01, ATT_OBS)),
                     c.getInt(get_table_pos(TABLE_01, ATT_CIERRE)) == 1);
-            new_hito.setId_hito(c.getLong(get_table_pos(TABLE_01, ATT_ID_HITO)));
             resultSet.add(new_hito);
         }
         return  resultSet;

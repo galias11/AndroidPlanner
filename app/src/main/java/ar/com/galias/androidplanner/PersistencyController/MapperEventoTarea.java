@@ -123,6 +123,7 @@ public class MapperEventoTarea extends Mapper{
         ArrayList<Mappeable> resultSet = new ArrayList<Mappeable>();
         while(c.moveToNext()){
             EventoTarea e = new EventoTarea(
+                            c.getLong(get_table_pos(TABLE_01, ATT_ID_EVENT)),
                             c.getString(get_table_pos(TABLE_01, ATT_TITULO)),
                             c.getString(get_table_pos(TABLE_01, ATT_DESC)),
                             getDateTime(c.getString(get_table_pos(TABLE_01, ATT_FEC_PLAN))),
@@ -131,7 +132,6 @@ public class MapperEventoTarea extends Mapper{
                             c.getDouble(get_table_pos(TABLE_02, ATT_CANT_PLAN)),
                             c.getString(get_table_pos(TABLE_02, ATT_UD_MED)),
                             c.getInt(get_table_pos(TABLE_02, ATT_PONDER)));
-            e.setId(c.getLong(get_table_pos(TABLE_01, ATT_ID_EVENT)));
             map_dependent_objects(e, OP_SELECT);
             resultSet.add(e);
 

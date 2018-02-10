@@ -41,6 +41,33 @@ public class Hito extends Mappeable{
         this.cierraEvento = cierraEvento;
     }
 
+    /**
+     * Constructor. This constructor is intended to be used by the class mappers, it doesn't mark
+     * object as created.
+     * @param id_hito
+     * (long) facts id. It must be a non negative integer value.
+     * @param fecReal
+     * (Calendar) Realization date. Must be a non null Calendar object (present or past).
+     * (PRECOND: Must be checked by the caller).
+     * @param cantReal
+     * (double) Quantity done. Must be a non negative real value.
+     * (PRECOND: Must be checked by the caller).
+     * @param obs
+     * (String) Observations. Could be null or empty (Max. 400 chars).
+     * (PRECOND: Must be checked by the caller).
+     * @param cierraEvento
+     * (boolean) If enabled, it means that this fact closes its corresponding event.
+     * (PRECOND: Must be checked by the caller).
+     */
+    public Hito(long id_hito, Calendar fecReal, double cantReal, String obs, boolean cierraEvento){
+        super(Mappeable.ID_HITO);
+        setId_hito(id_hito);
+        this.fecReal = fecReal;
+        this.cantReal = cantReal;
+        this.obs = obs;
+        this.cierraEvento = cierraEvento;
+    }
+
     public Hito(){
         super(Mappeable.ID_HITO);
     }
