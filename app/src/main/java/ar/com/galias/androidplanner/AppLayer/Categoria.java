@@ -21,6 +21,7 @@ public class Categoria extends Mappeable{
      */
     public Categoria(String nombre, String desc) throws AppLayerException{
         super(Mappeable.ID_CATEGORIA);
+        super.setCreated();
         if(id < 0)
             throw new AppLayerException(AppLayerException.ERR_CODE_INV_VALUE_INT_H0);
         if(nombre == null || nombre.isEmpty())

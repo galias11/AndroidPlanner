@@ -75,9 +75,8 @@
                         android:id="@+id/event_element_active_indicator"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
-                        android:tint="@color/grey_700"
-                        android:background="@android:color/transparent"/>
+                        android:backgroundTint="@color/grey_700"
+                        android:background="@android:drawable/ic_menu_close_clear_cancel"/>
 
                 </RelativeLayout>
 
@@ -90,9 +89,8 @@
                         android:id="@+id/event_element_closed_indicator"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        app:srcCompat="@android:drawable/ic_partial_secure"
-                        android:tint="@color/grey_700"
-                        android:background="@android:color/transparent"/>
+                        android:backgroundTint="@color/grey_700"
+                        android:background="@android:drawable/ic_partial_secure"/>
 
                 </RelativeLayout>
 
@@ -105,9 +103,8 @@
                         android:id="@+id/event_element_done_indicator"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        app:srcCompat="@android:drawable/checkbox_off_background"
-                        android:tint="@color/grey_700"
-                        android:background="@android:color/transparent"/>
+                        android:backgroundTint="@color/grey_700"
+                        android:background="@android:drawable/checkbox_off_background"/>
                 </RelativeLayout>
 
                 <RelativeLayout

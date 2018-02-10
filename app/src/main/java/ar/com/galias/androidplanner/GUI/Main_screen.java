@@ -1,10 +1,13 @@
 package ar.com.galias.androidplanner.GUI;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.Scroller;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,9 +38,14 @@ public class Main_screen implements Iface_main_screen{
 
     public Main_screen(Context appContext, Controller controller, int viewIndex){
         this.viewContext = appContext;
-        this.controller = controller;
         this.viewIndex = viewIndex;
 
+        inflateView();
+
+        setController(controller);
+    }
+
+    private void inflateView(){
         LayoutInflater inflater = (LayoutInflater) this.viewContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.view = inflater.inflate(R.layout.main_screen, null);
         this.view.setVisibility(View.VISIBLE);
@@ -47,13 +55,13 @@ public class Main_screen implements Iface_main_screen{
         this.main_tabs = (TabHost) this.view.findViewById(android.R.id.tabhost);
         setupTabs();
 
-        this.tareas_main_table = (LinearLayout) this.view.findViewById(R.id.tareas_main_table);
+        this.tareas_main_table = this.view.findViewById(R.id.tareas_main_table);
 
         this.new_task_button = (ImageButton) this.view.findViewById(R.id.task_new_button);
 
         this.view_task_button = new ArrayList<ImageButton>();
 
-        setController(controller);
+        this.view.setVisibility(View.VISIBLE);
     }
 
 
@@ -74,6 +82,10 @@ public class Main_screen implements Iface_main_screen{
         return tabSpec;
     }
 
+    @Override
+    public void clear_tasks() {
+        tareas_main_table.removeAllViews();
+    }
 
     @Override
     public void setController(Controller c){
@@ -120,5 +132,10 @@ public class Main_screen implements Iface_main_screen{
     public void throwErrMsg(String msg){
         Toast errMsg = Toast.makeText(viewContext, msg, Toast.LENGTH_SHORT);
         errMsg.show();
+    }
+
+    @Override
+    public void activateReturnButton(Activity activity) {
+        activity.moveTaskToBack(true);
     }
 }

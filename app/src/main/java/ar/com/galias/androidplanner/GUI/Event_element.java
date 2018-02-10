@@ -1,6 +1,7 @@
 package ar.com.galias.androidplanner.GUI;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,9 @@ public class Event_element {
     private String event_desc;
     private Calendar planned_date;
     private int avanc;
+    private boolean completed;
+    private boolean cancelled;
+    private boolean closed;
 
     private TextView title_textView;
     private TextView desc_textView;
@@ -118,6 +122,37 @@ public class Event_element {
 
     public int getAvanc() {
         return avanc;
+    }
+
+    public void setCancelled(boolean status){
+        this.cancelled = status;
+        if(status)
+            cancelled_indicator.setBackgroundTintList(this.viewContext.getResources().getColorStateList(R.color.red_900));
+        else
+            cancelled_indicator.setBackgroundTintList(this.viewContext.getResources().getColorStateList(R.color.grey_500));
+
+    }
+
+    public void setClosed(boolean status){
+        this.closed = status;
+        if(status) {
+            closed_indicator.setBackground(this.viewContext.getResources().getDrawable(android.R.drawable.ic_secure));
+            closed_indicator.setBackgroundTintList(this.viewContext.getResources().getColorStateList(R.color.yellow_500));
+        } else {
+            closed_indicator.setBackground(this.viewContext.getResources().getDrawable(android.R.drawable.ic_partial_secure));
+            closed_indicator.setBackgroundTintList(this.viewContext.getResources().getColorStateList(R.color.grey_500));
+        }
+    }
+
+    public void setCompleted(boolean status){
+        this.completed = status;
+        if(status) {
+            done_indicator.setBackground(this.viewContext.getResources().getDrawable(android.R.drawable.checkbox_on_background));
+            done_indicator.setBackgroundTintList(this.viewContext.getResources().getColorStateList(R.color.green_500));
+        } else {
+            done_indicator.setBackground(this.viewContext.getResources().getDrawable(android.R.drawable.checkbox_off_background));
+            done_indicator.setBackgroundTintList(this.viewContext.getResources().getColorStateList(R.color.grey_500));
+        }
     }
 
     private String formatDate(Calendar date){

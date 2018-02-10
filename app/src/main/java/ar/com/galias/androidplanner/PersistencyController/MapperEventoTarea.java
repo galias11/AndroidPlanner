@@ -87,6 +87,7 @@ public class MapperEventoTarea extends Mapper{
         values_02.put(ATT_CANT_PLAN, e.getCantPlaneada());
         values_02.put(ATT_UD_MED, e.getUdMedida());
         values_02.put(ATT_PONDER, e.getPonderacion());
+        values_02.put(ATT_CANT_ACT, e.getCantActual());
         values_02.put(ATT_TAREA, parent_table_id);
         insert_value_table.put(TABLE_02, values_02);
         return insert_value_table;
@@ -94,6 +95,7 @@ public class MapperEventoTarea extends Mapper{
     @Override
     protected void assign_IDs(Mappeable m, HashMap<String, Long> new_id_list) {
         EventoTarea e = (EventoTarea) m;
+        System.out.println("New id: " + new_id_list.get(TABLE_01));
         e.setId(new_id_list.get(TABLE_01));
     }
 
@@ -127,7 +129,7 @@ public class MapperEventoTarea extends Mapper{
                             c.getInt(get_table_pos(TABLE_01, ATT_UD_FREC_NOTIF)),
                             c.getInt(get_table_pos(TABLE_01, ATT_CANT_FREC_NOTIF)),
                             c.getDouble(get_table_pos(TABLE_02, ATT_CANT_PLAN)),
-                            c.getString(get_table_pos(TABLE_02, ATT_UD_FREC_NOTIF)),
+                            c.getString(get_table_pos(TABLE_02, ATT_UD_MED)),
                             c.getInt(get_table_pos(TABLE_02, ATT_PONDER)));
             e.setId(c.getLong(get_table_pos(TABLE_01, ATT_ID_EVENT)));
             map_dependent_objects(e, OP_SELECT);
@@ -148,15 +150,22 @@ public class MapperEventoTarea extends Mapper{
                         mapper.insert(h);
                     break;
                 case Mapper.OP_UPDATE:
-                    for(Hito h : e.getHitos())
-                        mapper.update(h);
+                    for(Hito h : e.getHitos()){
+                        if (h.isModified())
+                            mapper.update(h);
+                        else if (h.isCreated())
+                            mapper.insert(h);
+                    }
                     break;
                 case Mapper.OP_DELETE:
                     for(Hito h : e.getHitos())
                         mapper.delete(h);
                     break;
                 case Mapper.OP_SELECT:
-                    ArrayList<Mappeable> hitos_list = mapper.select(null);
+                    SearchAttribute s = new SearchAttribute("evento", SearchAttribute.OP_EQUAL, e.getId());
+                    ArrayList<SearchAttribute> attSearchList = new ArrayList<>();
+                    attSearchList.add(s);
+                    ArrayList<Mappeable> hitos_list = mapper.select(attSearchList);
                     for(Mappeable mapped_hito : hitos_list){
                         Hito h = (Hito) mapped_hito;
                         e.actualizar(h);

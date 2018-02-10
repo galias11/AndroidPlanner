@@ -1,5 +1,6 @@
 package ar.com.galias.androidplanner.GUI;
 
+import android.app.Activity;
 import android.view.View;
 
 import ar.com.galias.androidplanner.Controller.Controller;
@@ -17,5 +18,7 @@ public interface Iface_screen {
     void setViewIndex(int viewIndex);
     int getViewIndex();
     void throwErrMsg(String msg);
+
+    void activateReturnButton(Activity activity);
 
 }

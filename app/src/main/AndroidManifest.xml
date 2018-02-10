@@ -8,9 +8,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+        android:measureAllChildren="false"
+        >
 
-        <activity android:name=".Controller.Controller">
+        <activity
+            android:name=".Controller.Controller"
+            android:windowSoftInputMode="adjustPan"
+            android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,5 +25,7 @@
 
 
     </application>
+
+
 
 </manifest>

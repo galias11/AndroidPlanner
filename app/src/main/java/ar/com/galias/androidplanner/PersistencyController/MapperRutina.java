@@ -144,7 +144,10 @@ public class MapperRutina extends Mapper {
                 case OP_UPDATE:
                     while(it.hasNext()){
                         EventoRutina e = it.next();
-                        mapper.update(e);
+                        if (e.isModified())
+                            mapper.update(e);
+                        else if(e.isCreated())
+                            mapper.insert(e);
                     }
                     break;
                 case OP_DELETE:
@@ -154,7 +157,10 @@ public class MapperRutina extends Mapper {
                     }
                     break;
                 case OP_SELECT:
-                    ArrayList<Mappeable> events = mapper.select(null);
+                    SearchAttribute s = new SearchAttribute("rutina", SearchAttribute.OP_EQUAL, r.getId());
+                    ArrayList<SearchAttribute> attSearchList = new ArrayList<>();
+                    attSearchList.add(s);
+                    ArrayList<Mappeable> events = mapper.select(attSearchList);
                     Iterator<Mappeable> it_events = events.iterator();
                     while(it.hasNext())
                         r.agregarEvento((EventoRutina) it_events.next());

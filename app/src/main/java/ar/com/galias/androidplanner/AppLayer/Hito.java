@@ -34,6 +34,7 @@ public class Hito extends Mappeable{
      */
     public Hito(Calendar fecReal, double cantReal, String obs, boolean cierraEvento){
         super(Mappeable.ID_HITO);
+        super.setCreated();
         this.fecReal = fecReal;
         this.cantReal = cantReal;
         this.obs = obs;

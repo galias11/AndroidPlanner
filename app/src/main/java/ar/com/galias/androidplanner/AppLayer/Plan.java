@@ -29,6 +29,7 @@ public abstract class Plan extends Mappeable {
     public Plan(int classID, String titulo, String descripcion, Categoria categ)
     throws AppLayerException {
         super(classID);
+        super.setCreated();
         if(titulo == null || titulo.isEmpty())
             throw new AppLayerException(AppLayerException.ERR_CODE_STRING_NULL);
         if(titulo.length() > 25)

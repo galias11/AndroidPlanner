@@ -1,5 +1,6 @@
 package ar.com.galias.androidplanner.GUI;
 
+import android.app.Activity;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -30,8 +32,8 @@ public class Task_new_screen implements Iface_new_task_screen {
     private int viewIndex;
     private String selectedCategory;
 
-    private TextView titleTextView;
-    private TextView descTextView;
+    private EditText titleTextView;
+    private EditText descTextView;
     private Spinner categSpinner;
     private ImageButton acceptButton;
     private ImageButton cancelButton;
@@ -42,8 +44,18 @@ public class Task_new_screen implements Iface_new_task_screen {
         this.viewContext = viewContext;
         this.viewIndex = viewIndex;
 
-        this.selectedCategory = null;
+        inflateView();
 
+        setController(controller);
+
+        checkTextViews();
+
+        setUpSpinners();
+
+        this.selectedCategory = null;
+    }
+
+    private void inflateView(){
         LayoutInflater inflater = (LayoutInflater) this.viewContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.view = inflater.inflate(R.layout.tasks_new_task, null);
         this.view.setVisibility(View.VISIBLE);
@@ -63,10 +75,6 @@ public class Task_new_screen implements Iface_new_task_screen {
         this.cancelButton.setEnabled(true);
         this.newCategoryButton.setEnabled(true);
 
-        checkTextViews();
-
-        setController(controller);
-        setUpSpinners();
     }
 
     private void setUpSpinners(){
@@ -99,12 +107,12 @@ public class Task_new_screen implements Iface_new_task_screen {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
-                checkTextViews();
+
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-
+                checkTextViews();
             }
         });
     }
@@ -163,7 +171,7 @@ public class Task_new_screen implements Iface_new_task_screen {
     }
 
     @Override
-    public void hide() {
+    public void hide(){
         this.view.setVisibility(View.GONE);
     }
 
@@ -186,5 +194,10 @@ public class Task_new_screen implements Iface_new_task_screen {
     public void throwErrMsg(String msg) {
         Toast errMsg = Toast.makeText(viewContext, msg, Toast.LENGTH_SHORT);
         errMsg.show();
+    }
+
+    @Override
+    public void activateReturnButton(Activity activity) {
+        this.cancelButton.callOnClick();
     }
 }

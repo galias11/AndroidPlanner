@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+
+
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_tab_panel"
@@ -7,143 +9,130 @@
     android:layout_height="match_parent"
     android:background="@drawable/loading_color_gradient_01"
     android:orientation="vertical"
-    android:visibility="visible">
+    android:weightSum="100">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="100">
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:background="@color/grey_800"
+        android:orientation="vertical">
 
-        <LinearLayout
+
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10"
-            android:background="@color/grey_800"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/loading_screen_text_01"
+            android:textAlignment="gravity"
+            android:textSize="30sp" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="85"
+        android:orientation="vertical">
 
-            <TextView
+        <TabHost
+            android:id="@android:id/tabhost"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/loading_screen_text_01"
-                android:textAlignment="gravity"
-                android:textSize="30dp" />
-        </LinearLayout>
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="85"
-            android:orientation="vertical">
 
-            <TabHost
-                android:id="@android:id/tabhost"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
+                <TabWidget
+                    android:id="@android:id/tabs"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_800" />
 
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                    <TabWidget
-                        android:id="@android:id/tabs"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/grey_800" />
-
-                    <FrameLayout
-                        android:id="@android:id/tabcontent"
+                    <RelativeLayout
+                        android:id="@+id/tareas"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <RelativeLayout
-                            android:id="@+id/tareas"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
-
-                                    <ScrollView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent">
-
-                                        <LinearLayout
-                                            android:id="@+id/tareas_main_table"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:weightSum="3"
-                                            android:orientation="vertical">
-
-                                            <android.support.v4.widget.Space
-                                                android:layout_width="match_parent"
-                                                android:layout_height="5dp" />
-
-                                        </LinearLayout>
-
-                                    </ScrollView>
-
-
-                                </LinearLayout>
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                android:layout_alignParentBottom="true"
-                                android:layout_alignParentRight="true"
-                                >
-
-                                <ImageButton
-                                    android:id="@+id/task_new_button"
-                                    android:layout_width="65dp"
-                                    android:layout_height="65dp"
-                                    android:background="@drawable/circular_shape_02"
-                                    android:contentDescription="new_task"
-                                    android:tint="@color/white"
-                                    app:srcCompat="@android:drawable/ic_input_add" />
-
-                            </LinearLayout>
-
-                        </RelativeLayout>
-
-
                         <LinearLayout
-                            android:id="@+id/rutinas"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
 
-                            <android.support.v4.view.ViewPager
+                            <ScrollView
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent" />
+                                android:layout_height="match_parent">
+
+                                <LinearLayout
+                                    android:id="@+id/tareas_main_table"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <android.support.v4.widget.Space
+                                        android:layout_width="match_parent"
+                                        android:layout_height="5dp" />
+
+                                </LinearLayout>
+
+                            </ScrollView>
+
+
+
                         </LinearLayout>
 
-                    </FrameLayout>
-                </LinearLayout>
-            </TabHost>
-        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentEnd="true"
+                            >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="5"
-            android:background="@color/grey_800"
-            android:orientation="vertical">
+                            <ImageButton
+                                android:id="@+id/task_new_button"
+                                android:layout_width="65dp"
+                                android:layout_height="65dp"
+                                android:background="@drawable/circular_shape_02"
+                                android:contentDescription="new_task"
+                                android:tint="@color/white"
+                                app:srcCompat="@android:drawable/ic_input_add" />
 
-        </LinearLayout>
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/rutinas"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <android.support.v4.view.ViewPager
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:background="@color/grey_800"
+        android:orientation="vertical">
 
-</RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
+
+

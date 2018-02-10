@@ -1,5 +1,6 @@
 package ar.com.galias.androidplanner.GUI;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -9,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
@@ -16,12 +18,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.AbstractMap;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Timer;
 
 import ar.com.galias.androidplanner.Controller.Controller;
 import ar.com.galias.androidplanner.R;
@@ -36,14 +36,14 @@ public class Task_event_new_screen implements  Iface_task_event_new_screen{
     private View view;
     private int viewIndex;
 
-    private TextView titleTextView;
-    private TextView descriptionTextView;
-    private TextView dateTextView;
+    private EditText titleTextView;
+    private EditText descriptionTextView;
+    private EditText dateTextView;
     private Spinner prioritySpinner;
     private Spinner notifTimeTypeSpinner;
-    private TextView notifTimeQuantityTextView;
-    private TextView plannedQuantityTextView;
-    private TextView unitTextView;
+    private EditText notifTimeQuantityTextView;
+    private EditText plannedQuantityTextView;
+    private EditText unitTextView;
 
     private ImageButton cancelButton;
     private ImageButton saveButton;
@@ -51,15 +51,42 @@ public class Task_event_new_screen implements  Iface_task_event_new_screen{
     private Calendar planned_date;
 
 
+    private TextWatcher searchTextWatcher = new TextWatcher() {
+        @Override
+        public void afterTextChanged(Editable arg0) {
+            checkTextViews();
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            // nothing to do here
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+        }
+    };
+
+
     public Task_event_new_screen(Context viewContext, Controller controller, int viewIndex){
         this.viewContext = viewContext;
         this.viewIndex = viewIndex;
 
+        inflateView();
+
+        setController(controller);
+
+    }
+
+    private void inflateView(){
         LayoutInflater inflater = (LayoutInflater) this.viewContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.view = inflater.inflate(R.layout.task_event_add, null);
 
+
         this.titleTextView = this.view.findViewById(R.id.new_task_event_title);
         setUpTextViews(this.titleTextView);
+
+
         this.descriptionTextView = this.view.findViewById(R.id.new_task_event_desc);
         setUpTextViews(this.descriptionTextView);
 
@@ -85,8 +112,9 @@ public class Task_event_new_screen implements  Iface_task_event_new_screen{
         this.saveButton = this.view.findViewById(R.id.new_task_event_save_button);
         this.saveButton.setEnabled(false);
 
-        setController(controller);
     }
+
+
 
     private void setUpDatePicker(){
         this.planned_date = null;
@@ -170,27 +198,13 @@ public class Task_event_new_screen implements  Iface_task_event_new_screen{
 
 
     private void setUpTextViews(TextView textView){
-        textView.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
-                checkTextViews();
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
+        final Timer timer = new Timer();
+        textView.addTextChangedListener(searchTextWatcher);
     }
 
     private void checkTextViews(){
         boolean title = this.titleTextView.getText().length() > 0 && this.titleTextView.getText().length() <= 25;
-        boolean desc = this.descriptionTextView.getText().length() < 0 && this.descriptionTextView.getText().length() <= 200;
+        boolean desc = this.descriptionTextView.getText().length() > 0 && this.descriptionTextView.getText().length() <= 200;
         boolean date = getDate() != null;
         boolean priority = getPriority() != -1;
         boolean notif_type = getNotificationTimeType() != -1;
@@ -202,6 +216,7 @@ public class Task_event_new_screen implements  Iface_task_event_new_screen{
         else
             this.saveButton.setEnabled(false);
     }
+
 
     @Override
     public String getTitle() {
@@ -333,8 +348,8 @@ public class Task_event_new_screen implements  Iface_task_event_new_screen{
     }
 
     @Override
-    public int getUnit() {
-        return Integer.parseInt(this.unitTextView.getText().toString());
+    public String getUnit() {
+        return unitTextView.getText().toString();
     }
 
     @Override
@@ -345,5 +360,10 @@ public class Task_event_new_screen implements  Iface_task_event_new_screen{
         this.notifTimeQuantityTextView.setText("");
         this.plannedQuantityTextView.setText("");
         this.unitTextView.setText("");
+    }
+
+    @Override
+    public void activateReturnButton(Activity activity) {
+        this.cancelButton.callOnClick();
     }
 }

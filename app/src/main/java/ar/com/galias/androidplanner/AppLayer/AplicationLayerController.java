@@ -108,8 +108,8 @@ public class AplicationLayerController implements Serializable{
             throw new AppLayerException(AppLayerException.ERR_CODE_NOT_FOUND);
         Rutina new_rutina = new Rutina(titulo, desc, categoria, frec_param,
                 frec_rate, fecha_inic, ud_tiempo_notif, cant_tiempo_notif);
-        this.rutinas.put(new_rutina.getId(), new_rutina);
         persistency_controller.save(new_rutina);
+        this.rutinas.put(new_rutina.getId(), new_rutina);
         return new_rutina;
     }
 
@@ -191,8 +191,8 @@ public class AplicationLayerController implements Serializable{
         if(categ == null || !categorias.containsKey(categ.getNombre()))
             throw new AppLayerException(AppLayerException.ERR_CODE_NOT_FOUND);
         Tarea new_tarea = new Tarea(titulo, desc, categ);
-        this.tareas.put(new_tarea.getId(), new_tarea);
         persistency_controller.save(new_tarea);
+        this.tareas.put(new_tarea.getId(), new_tarea);
         return new_tarea;
     }
 

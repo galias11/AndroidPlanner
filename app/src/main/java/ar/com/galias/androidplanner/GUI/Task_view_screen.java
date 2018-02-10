@@ -1,5 +1,6 @@
 package ar.com.galias.androidplanner.GUI;
 
+import android.app.Activity;
 import android.content.Context;
 import android.media.Image;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import ar.com.galias.androidplanner.Controller.Controller;
@@ -40,11 +42,21 @@ public class Task_view_screen implements Iface_view_task_screen{
     private ImageButton add_event_button;
     private ImageButton return_button;
 
+    private LinearLayout events_area;
+
 
     public Task_view_screen(Context viewContext, Controller controller, int viewIndex){
         this.viewContext = viewContext;
         this.viewIndex = viewIndex;
 
+        inflateView();
+
+        setController(controller);
+
+        setUpEvents();
+    }
+
+    private void inflateView(){
         LayoutInflater inflater = (LayoutInflater) this.viewContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.view = inflater.inflate(R.layout.tasks_view_task, null);
         this.view.setVisibility(View.VISIBLE);
@@ -56,33 +68,21 @@ public class Task_view_screen implements Iface_view_task_screen{
         this.return_button = (ImageButton) this.view.findViewById(R.id.task_view_return);
         this.add_event_button = (ImageButton) this.view.findViewById(R.id.task_view_new_event);
 
-        setController(controller);
-
-        setUpEvents();
     }
 
     private void setUpEvents(){
-        LinearLayout events_area = this.getView().findViewById(R.id.task_event_area);
-        Event_element e1 = new Event_element(viewContext, 1, "Evento de prueba 1",
-                "Esto es un evento de prueba.", GregorianCalendar.getInstance(),
-                35, this.controller);
-        Event_element e2 = new Event_element(viewContext, 2, "Evento de prueba 2",
-                "Esto es un evento de prueba.", GregorianCalendar.getInstance(),
-                95, this.controller);
-        Event_element e3 = new Event_element(viewContext, 3, "Evento de prueba 3",
-                "Esto es un evento de prueba.", GregorianCalendar.getInstance(),
-                60, this.controller);
+        this.events_area = this.getView().findViewById(R.id.task_event_area);
+    }
 
-        events_area.addView(e1.getElementView());
-        events_area.addView(e1.getSpaceView());
-
-        events_area.addView(e2.getElementView());
-        events_area.addView(e2.getSpaceView());
-
-        events_area.addView(e3.getElementView());
-        events_area.addView(e3.getSpaceView());
-
-
+    @Override
+    public void addEvent(long id, String title, String desc, Calendar plannedDate, boolean isCancelled, boolean isClosed, boolean isCompleted, int progress) {
+        Event_element new_event = new Event_element(this.viewContext, id, title, desc, plannedDate,
+                progress, this.controller);
+        new_event.setCancelled(isCancelled);
+        new_event.setClosed(isClosed);
+        new_event.setCompleted(isCompleted);
+        this.events_area.addView(new_event.getSpaceView());
+        this.events_area.addView(new_event.getElementView());
     }
 
     @Override
@@ -137,6 +137,13 @@ public class Task_view_screen implements Iface_view_task_screen{
         this.progress_bar.setProgress(this.progress);
         this.progress_bar_textView.setText(this.progress + "%");
 
+        this.events_area.removeAllViews();
+
+    }
+
+    @Override
+    public void clearTasks() {
+        this.events_area.removeAllViews();
     }
 
     @Override
@@ -163,5 +170,10 @@ public class Task_view_screen implements Iface_view_task_screen{
     public void throwErrMsg(String msg) {
         Toast errMsg = Toast.makeText(viewContext, msg, Toast.LENGTH_SHORT);
         errMsg.show();
+    }
+
+    @Override
+    public void activateReturnButton(Activity activity) {
+        this.return_button.callOnClick();
     }
 }

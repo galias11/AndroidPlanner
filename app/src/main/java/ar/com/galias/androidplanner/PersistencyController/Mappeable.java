@@ -12,6 +12,8 @@ import java.util.Iterator;
 public abstract class Mappeable implements Serializable{
     private final int classID;
     protected boolean modified;
+    protected boolean created;
+    protected boolean deleted;
 
     public static int ID_CATEGORIA = 1001;
     public static int ID_PLAN = 1002;
@@ -61,6 +63,11 @@ public abstract class Mappeable implements Serializable{
         modified = false;
     }
 
+    public void setCreated(){ created = true; }
 
+    public boolean isCreated(){ return created; }
 
+    public void setDeleted(){ deleted = true; }
+
+    public boolean isDeleted() { return deleted; }
 }

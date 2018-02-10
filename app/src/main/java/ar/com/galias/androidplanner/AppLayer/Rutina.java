@@ -223,6 +223,7 @@ public class Rutina extends Plan {
             throw new AppLayerException(AppLayerException.ERR_CODE_NOT_CANC);
         this.frec_tipo = frec_tipo;
         this.frec_cant = frec_cant;
+        super.setChanged();
     }
 
     /**
@@ -252,5 +253,6 @@ public class Rutina extends Plan {
             throw new AppLayerException(AppLayerException.ERR_CODE_INV_VALUE_INT_H0);
         this.ud_tiempo_notif = ud_tiempo_notif;
         this.cant_tiempo_notif = cant_tiempo_notif;
+        super.setChanged();
     }
 }

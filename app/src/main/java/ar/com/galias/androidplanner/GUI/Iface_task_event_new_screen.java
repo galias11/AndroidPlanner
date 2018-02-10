@@ -14,7 +14,7 @@ public interface Iface_task_event_new_screen extends Iface_screen{
     int getNotificationTimeType();
     int getNotificationTimeQuantity();
     int getPlannedQuantity();
-    int getUnit();
+    String getUnit();
 
     void clearScreen();
 

@@ -1,10 +1,14 @@
 package ar.com.galias.androidplanner.Controller;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.EventLog;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -14,10 +18,13 @@ import android.widget.ViewSwitcher;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Iterator;
+import java.util.Locale;
 
 import ar.com.galias.androidplanner.AppLayer.AplicationLayerController;
 import ar.com.galias.androidplanner.AppLayer.AppLayerException;
 import ar.com.galias.androidplanner.AppLayer.Categoria;
+import ar.com.galias.androidplanner.AppLayer.EventoTarea;
 import ar.com.galias.androidplanner.AppLayer.Tarea;
 import ar.com.galias.androidplanner.GUI.Category_new_screen;
 import ar.com.galias.androidplanner.GUI.Iface_loading_screen;
@@ -56,7 +63,6 @@ public class Controller extends AppCompatActivity {
     private Iface_view_task_screen viewTaskScreen;
     private Iface_task_event_new_screen newTaskEventScreen;
 
-    private ViewFlipper viewManager;
     private Lang lang_module;
 
     public static final int SCREEN_LOADING = 0;
@@ -77,16 +83,22 @@ public class Controller extends AppCompatActivity {
     public static final int PRIORITY_LOW = 25;
     public static final int PRIORITY_VERY_LOW = 10;
 
+    private Locale locale = null;
+
     private final int guiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
             | View.SYSTEM_UI_FLAG_FULLSCREEN
             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
             | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 
+    private Bundle savedInstance;
+
 
     @Override
     public void onCreate(Bundle savedInstance){
         super.onCreate(savedInstance);
+        this.savedInstance = savedInstance;
+
         this.appContext = this;
         this.lang_module = LangEs.getInstance();
 
@@ -99,6 +111,11 @@ public class Controller extends AppCompatActivity {
         initialize_app();
 
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        currentScreen.activateReturnButton(this);
     }
 
 
@@ -116,13 +133,8 @@ public class Controller extends AppCompatActivity {
         this.viewTaskScreen.hide();
         this.newTaskEventScreen.hide();
 
-        this.viewManager.addView(this.mainScreen.getView(), new ViewSwitcher.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        this.viewManager.addView(this.newTaskScreen.getView(), new ViewSwitcher.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        this.viewManager.addView(this.newCategoryScreen.getView(), new ViewSwitcher.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        this.viewManager.addView(this.viewTaskScreen.getView(), new ViewSwitcher.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        this.viewManager.addView(this.newTaskEventScreen.getView(), new ViewSwitcher.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-
     }
+
 
     private void set_up_clickListener(){
         final Toast errMsg = Toast.makeText(appContext, "", Toast.LENGTH_SHORT);
@@ -150,6 +162,9 @@ public class Controller extends AppCompatActivity {
                                     (int) new_tarea.getAvanc());
                             successMsg.setText("Tarea creada");
                             newTaskScreen.clearScreen();
+                            mainScreen.clear_tasks();
+                            boolean[] filters = {false, false, true, false};
+                            load_tasks(filters, AplicationLayerController.ORDER_KEY_DATE, false, null);
                             setCurrentScreen(mainScreen);
                         } catch(AppLayerException modelEx){
                             errMsg.setText(modelEx.getMessage());
@@ -191,6 +206,7 @@ public class Controller extends AppCompatActivity {
                         viewTaskScreen.setTitle(t.getTitulo());
                         viewTaskScreen.setDescription(t.getDescripcion());
                         viewTaskScreen.setProgress((int) t.getAvanc());
+                        load_task_events(task_id);
                         setCurrentScreen(viewTaskScreen);
                         break;
                     case R.id.task_view_return:
@@ -203,11 +219,47 @@ public class Controller extends AppCompatActivity {
                     case R.id.new_task_event_cancel_button:
                         newTaskEventScreen.clearScreen();
                         setCurrentScreen(viewTaskScreen);
+                        break;
+                    case R.id.new_task_event_save_button:
+                        long current_task_id = viewTaskScreen.getCurrent_task_ID();
+                        try{
+                            appModel.agregarEventoTarea(current_task_id,
+                                 newTaskEventScreen.getTitle(),
+                                    newTaskEventScreen.getDescription(),
+                                    newTaskEventScreen.getDate(),
+                                    newTaskEventScreen.getPlannedQuantity(),
+                                    newTaskEventScreen.getUnit(),
+                                    newTaskEventScreen.getPriority(),
+                                    newTaskEventScreen.getNotificationTimeType(),
+                                    newTaskEventScreen.getNotificationTimeQuantity()
+                            );
+                            successMsg.setText("Evento creado y agregado a la tarea.");
+                            successMsg.show();
+                            viewTaskScreen.clearScreen();
+                            load_task_events(current_task_id);
+                            setCurrentScreen(viewTaskScreen);
+                        } catch (PersistencyException ex_persist){
+                            errMsg.setText(ex_persist.getMessage());
+                            errMsg.show();
+                        } catch (AppLayerException ex_app){
+                            errMsg.setText(ex_app.getMessage());
+                            errMsg.show();
+                        }
                     default:
                         break;
                 }
             }
         };
+    }
+
+    private void load_task_events(long task_id){
+        Iterator<EventoTarea> task_event_it = appModel.getTareas().get(task_id).getEventos().values().iterator();
+        while(task_event_it.hasNext()){
+            EventoTarea e = task_event_it.next();
+            viewTaskScreen.addEvent(e.getId(), e.getTitulo(), e.getDesc(),
+                    e.getFecPlan(), e.isCancelado(), e.isCerrado(), e.getPorcAvance() == 1.0,
+                    (int) e.getCantActual());
+        }
     }
 
     private void set_up_keyListener(){
@@ -224,11 +276,8 @@ public class Controller extends AppCompatActivity {
         set_up_clickListener();
         set_up_keyListener();
 
-        this.viewManager = (ViewFlipper) this.findViewById(R.id.app_context_layout);
 
         this.loadingScreen = new Loading_screen(appContext, this, SCREEN_LOADING);
-        this.loadingScreen.hide();
-        this.viewManager.addView(this.loadingScreen.getView(), new ViewSwitcher.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
         setCurrentScreen(loadingScreen);
 
@@ -253,7 +302,7 @@ public class Controller extends AppCompatActivity {
         this.currentScreen = screen;
         if(previous != null)
             previous.hide();
-        this.viewManager.setDisplayedChild(screen.getViewIndex());
+        setContentView(screen.getView());
     }
 
     private void load_tasks(boolean[] filters, int order, boolean inv_order, ArrayList<String> categs){
@@ -290,17 +339,7 @@ public class Controller extends AppCompatActivity {
         return categTitles;
     }
 
-    @Override
-    public void onResume(){
-        super.onResume();
 
-    }
-
-    @Override
-    public void onRestart(){
-        super.onRestart();
-
-    }
 
 
 }

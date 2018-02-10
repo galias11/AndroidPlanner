@@ -1,5 +1,6 @@
 package ar.com.galias.androidplanner.GUI;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.view.Gravity;
@@ -23,10 +24,18 @@ public class Loading_screen implements Iface_loading_screen{
     public Loading_screen(Context viewContext, Controller controller, int viewIndex){
         this.viewContext = viewContext;
         this.viewIndex = viewIndex;
-        LayoutInflater inflater = (LayoutInflater) this.viewContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.view = inflater.inflate(R.layout.loading_screen, null);
-        this.view.setVisibility(View.VISIBLE);
+
+        inflateView();
+
         setController(controller);
+     }
+
+     private void inflateView(){
+         LayoutInflater inflater = (LayoutInflater) this.viewContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+         this.view = inflater.inflate(R.layout.loading_screen, null);
+         this.view.setVisibility(View.VISIBLE);
+
      }
 
      @Override
@@ -66,5 +75,10 @@ public class Loading_screen implements Iface_loading_screen{
     @Override
     public int getViewIndex() {
         return this.viewIndex;
+    }
+
+    @Override
+    public void activateReturnButton(Activity activity) {
+        activity.moveTaskToBack(true);
     }
 }

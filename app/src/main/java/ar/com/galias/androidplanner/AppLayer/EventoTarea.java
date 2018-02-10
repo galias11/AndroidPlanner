@@ -120,6 +120,7 @@ public class EventoTarea extends Evento{
         super.cancelar();
         this.hitos.add(new Hito(Calendar.getInstance(), 0.0,
                 "--> Cancelación evento.", true));
+        this.setChanged();
     }
 
     public double getPorcAvance(){

@@ -113,6 +113,7 @@ public class Tarea extends Plan {
     public void agregarEvento(EventoTarea evento){
         this.eventos.put(evento.getId(), evento);
         actualizarAvance();
+        super.setChanged();
     }
 
 

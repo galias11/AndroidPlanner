@@ -2,329 +2,314 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100"
         android:background="@drawable/loading_color_gradient_01">
-
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:background="@color/grey_800"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/loading_screen_text_01"
+                android:textAlignment="gravity"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="8.5"
+            android:background="@color/grey_800">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@color/grey_800"
+                android:text="CREAR NUEVO EVENTO"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4.25" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="72.25"
+            android:orientation="horizontal"
             android:weightSum="100">
 
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="match_parent" />
+
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="10"
-                android:background="@color/grey_800"
-                android:orientation="vertical">
+                android:layout_width="0dp"
+                android:layout_weight="90"
+                android:layout_height="match_parent">
 
-
-                <TextView
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="@string/loading_screen_text_01"
-                    android:textAlignment="gravity"
-                    android:textSize="30dp" />
-            </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="85"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:weightSum="100">
-
+                    android:layout_height="match_parent">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="10"
-                        android:background="@color/grey_800">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:background="@color/grey_800"
-                            android:text="CREAR NUEVO EVENTO"
-                            android:textColor="@color/white"
-                            android:textSize="18sp" />
-
-                    </RelativeLayout>
-
-
-                    <android.support.v4.widget.Space
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="5" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="90"
-                        android:orientation="horizontal"
-                        android:weightSum="100">
-
-                        <android.support.v4.widget.Space
-                            android:layout_width="0dp"
-                            android:layout_weight="5"
-                            android:layout_height="match_parent" />
+                        android:layout_height="500dp">
 
                         <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_weight="90"
-                            android:layout_height="match_parent">
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-                            <ScrollView
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/new_task_event_title"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+                                android:layout_height="50dp"
+                                android:layout_gravity="top"
+                                android:maxLength="25"
+                                android:lines="2"
+                                android:hint="Titulo"
+                                android:textSize="14sp" />
+
+                            <android.support.v4.widget.Space
+                                android:layout_width="match_parent"
+                                android:layout_height="5dp" />
+
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/new_task_event_desc"
+                                android:layout_width="match_parent"
+                                android:layout_height="125dp"
+                                android:textAlignment="textStart"
+                                android:maxLength="200"
+                                android:lines="4"
+                                android:hint="Descripción"
+                                android:textSize="14sp" />
+
+                            <android.support.v4.widget.Space
+                                android:layout_width="match_parent"
+                                android:layout_height="5dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:orientation="horizontal"
+                                android:weightSum="100">
+
+                                <android.support.design.widget.TextInputEditText
+                                    android:id="@+id/new_task_event_date"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="50"
+                                    android:layout_height="match_parent"
+                                    android:textAlignment="textStart"
+                                    android:maxLength="10"
+                                    android:lines="1"
+                                    android:hint="Fecha planeada"
+                                    android:focusable="false"
+                                    android:textSize="14sp" />
+
+                                <android.support.v4.widget.Space
+                                    android:layout_width="0dp"
+                                    android:layout_weight="10"
+                                    android:layout_height="match_parent" />
+
+                                <Spinner
+                                    android:id="@+id/new_task_event_priority_spinner"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="40"
+                                    android:layout_height="match_parent"
+                                    android:entries="@array/task_event_new_pond_spinner">
+
+                                </Spinner>
+
+                            </LinearLayout>
+
+                            <android.support.v4.widget.Space
+                                android:layout_width="match_parent"
+                                android:layout_height="5dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:weightSum="100"
+                                android:orientation="horizontal">
+
+                                <Spinner
+                                    android:id="@+id/new_task_event_notif_type_spinner"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="50"
+                                    android:layout_height="match_parent"
+                                    android:entries="@array/task_event_new_frec_cant_spinner">
+
+                                </Spinner>
+
+                                <android.support.v4.widget.Space
+                                    android:layout_width="0dp"
+                                    android:layout_weight="10"
+                                    android:layout_height="match_parent" />
+
+                                <android.support.design.widget.TextInputEditText
+                                    android:id="@+id/new_task_event_notif_quantity"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="50"
+                                    android:layout_height="match_parent"
+                                    android:textAlignment="textStart"
+                                    android:maxLength="10"
+                                    android:lines="1"
+                                    android:hint="Cantidad"
+                                    android:focusable="false"
+                                    android:textSize="14sp" />
+
+
+                            </LinearLayout>
+
+                            <android.support.v4.widget.Space
+                                android:layout_width="match_parent"
+                                android:layout_height="5dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:orientation="horizontal"
+                                android:weightSum="100">
+
+                                <android.support.design.widget.TextInputEditText
+                                    android:id="@+id/new_task_event_planned_quantity"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="60"
+                                    android:layout_height="match_parent"
+                                    android:textAlignment="textStart"
+                                    android:maxLength="10"
+                                    android:lines="1"
+                                    android:hint="Cantidad"
+                                    android:focusable="false"
+                                    android:textSize="14sp" />
+
+                                <android.support.v4.widget.Space
+                                    android:layout_width="0dp"
+                                    android:layout_weight="10"
+                                    android:layout_height="match_parent" />
+
+                                <android.support.design.widget.TextInputEditText
+                                    android:id="@+id/new_task_event_planned_unit"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="50"
+                                    android:layout_height="match_parent"
+                                    android:textAlignment="textStart"
+                                    android:maxLength="2"
+                                    android:lines="1"
+                                    android:hint="Ud. medida"
+                                    android:textSize="14sp" />
+
+
+
+                            </LinearLayout>
+
+                            <android.support.v4.widget.Space
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="75dp"
+                                android:weightSum="100"
+                                android:orientation="horizontal">
 
                                 <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="500dp">
+                                    android:layout_width="0dp"
+                                    android:layout_weight="50"
+                                    android:layout_height="match_parent">
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:orientation="vertical">
-
-                                        <android.support.design.widget.TextInputEditText
-                                            android:id="@+id/new_task_event_title"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="50dp"
-                                            android:layout_gravity="top"
-                                            android:maxLength="25"
-                                            android:lines="2"
-                                            android:hint="Titulo"
-                                            android:textSize="14sp" />
-                                        
-                                        <android.support.v4.widget.Space
-                                            android:layout_width="match_parent"
-                                            android:layout_height="5dp" />
-
-                                        <android.support.design.widget.TextInputEditText
-                                            android:id="@+id/new_task_event_desc"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="125dp"
-                                            android:textAlignment="textStart"
-                                            android:maxLength="200"
-                                            android:lines="4"
-                                            android:hint="Descripción"
-                                            android:textSize="14sp" />
-                                        
-                                        <android.support.v4.widget.Space
-                                            android:layout_width="match_parent"
-                                            android:layout_height="5dp" />
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="50dp"
-                                            android:orientation="horizontal"
-                                            android:weightSum="100">
-
-                                            <android.support.design.widget.TextInputEditText
-                                                android:id="@+id/new_task_event_date"
-                                                android:layout_width="0dp"
-                                                android:layout_weight="50"
-                                                android:layout_height="match_parent"
-                                                android:textAlignment="textStart"
-                                                android:maxLength="10"
-                                                android:lines="1"
-                                                android:hint="Fecha planeada"
-                                                android:focusable="false"
-                                                android:textSize="14sp" />
-
-                                            <android.support.v4.widget.Space
-                                                android:layout_width="0dp"
-                                                android:layout_weight="10"
-                                                android:layout_height="match_parent" />
-
-                                            <Spinner
-                                                android:id="@+id/new_task_event_priority_spinner"
-                                                android:layout_width="0dp"
-                                                android:layout_weight="40"
-                                                android:layout_height="match_parent"
-                                                android:entries="@array/task_event_new_pond_spinner">
-
-                                            </Spinner>
-
-                                        </LinearLayout>
-
-                                        <android.support.v4.widget.Space
-                                            android:layout_width="match_parent"
-                                            android:layout_height="5dp" />
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="50dp"
-                                            android:weightSum="100"
-                                            android:orientation="horizontal">
-
-                                            <Spinner
-                                                android:id="@+id/new_task_event_notif_type_spinner"
-                                                android:layout_width="0dp"
-                                                android:layout_weight="50"
-                                                android:layout_height="match_parent"
-                                                android:entries="@array/task_event_new_frec_cant_spinner">
-
-                                            </Spinner>
-
-                                            <android.support.v4.widget.Space
-                                                android:layout_width="0dp"
-                                                android:layout_weight="10"
-                                                android:layout_height="match_parent" />
-
-                                            <android.support.design.widget.TextInputEditText
-                                                android:id="@+id/new_task_event_notif_quantity"
-                                                android:layout_width="0dp"
-                                                android:layout_weight="50"
-                                                android:layout_height="match_parent"
-                                                android:textAlignment="textStart"
-                                                android:maxLength="10"
-                                                android:lines="1"
-                                                android:hint="Cantidad"
-                                                android:focusable="false"
-                                                android:textSize="14sp" />
-
-
-                                        </LinearLayout>
-
-                                        <android.support.v4.widget.Space
-                                            android:layout_width="match_parent"
-                                            android:layout_height="5dp" />
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="50dp"
-                                            android:orientation="horizontal"
-                                            android:weightSum="100">
-
-                                            <android.support.design.widget.TextInputEditText
-                                                android:id="@+id/new_task_event_planned_quantity"
-                                                android:layout_width="0dp"
-                                                android:layout_weight="60"
-                                                android:layout_height="match_parent"
-                                                android:textAlignment="textStart"
-                                                android:maxLength="10"
-                                                android:lines="1"
-                                                android:hint="Cantidad"
-                                                android:focusable="false"
-                                                android:textSize="14sp" />
-
-                                            <android.support.v4.widget.Space
-                                                android:layout_width="0dp"
-                                                android:layout_weight="10"
-                                                android:layout_height="match_parent" />
-
-                                            <android.support.design.widget.TextInputEditText
-                                                android:id="@+id/new_task_event_planned_unit"
-                                                android:layout_width="0dp"
-                                                android:layout_weight="50"
-                                                android:layout_height="match_parent"
-                                                android:textAlignment="textStart"
-                                                android:maxLength="2"
-                                                android:lines="1"
-                                                android:hint="Ud. medida"
-                                                android:textSize="14sp" />
-
-
-
-                                        </LinearLayout>
-
-                                        <android.support.v4.widget.Space
-                                            android:layout_width="match_parent"
-                                            android:layout_height="50dp" />
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="75dp"
-                                            android:weightSum="100"
-                                            android:orientation="horizontal">
-
-                                            <RelativeLayout
-                                                android:layout_width="0dp"
-                                                android:layout_weight="50"
-                                                android:layout_height="match_parent">
-
-                                                <ImageButton
-                                                    android:id="@+id/new_task_event_cancel_button"
-                                                    android:layout_width="50dp"
-                                                    android:layout_height="50dp"
-                                                    android:scaleType="centerCrop"
-                                                    android:layout_centerInParent="true"
-                                                    android:backgroundTint="@color/red_900"
-                                                    android:background="@android:drawable/ic_menu_close_clear_cancel"/>
-
-                                            </RelativeLayout>
-
-                                            <RelativeLayout
-                                                android:layout_width="0dp"
-                                                android:layout_weight="50"
-                                                android:layout_height="match_parent">
-
-                                                <ImageButton
-                                                    android:id="@+id/new_task_event_save_button"
-                                                    android:layout_width="50dp"
-                                                    android:layout_height="50dp"
-                                                    android:scaleType="fitStart"
-                                                    android:layout_centerInParent="true"
-                                                    android:background="@drawable/save_button_mode_color"/>
-
-                                            </RelativeLayout>
-
-                                        </LinearLayout>
-
-
-
-                                    </LinearLayout>
-
+                                    <ImageButton
+                                        android:id="@+id/new_task_event_cancel_button"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:scaleType="centerCrop"
+                                        android:layout_centerInParent="true"
+                                        android:backgroundTint="@color/red_900"
+                                        android:background="@android:drawable/ic_menu_close_clear_cancel"/>
 
                                 </RelativeLayout>
 
-                            </ScrollView>
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="50"
+                                    android:layout_height="match_parent">
+
+                                    <ImageButton
+                                        android:id="@+id/new_task_event_save_button"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:scaleType="fitStart"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/save_button_mode_color"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+
+
                         </LinearLayout>
 
-                        <android.support.v4.widget.Space
-                            android:layout_width="0dp"
-                            android:layout_weight="5"
-                            android:layout_height="match_parent" />
 
-                    </LinearLayout>
+                    </RelativeLayout>
 
-                </LinearLayout>
-
-            </RelativeLayout>
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="5"
-                android:background="@color/grey_800"
-                android:orientation="vertical">
-
+                </ScrollView>
             </LinearLayout>
 
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="match_parent" />
 
         </LinearLayout>
 
 
 
-    </RelativeLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:background="@color/grey_800"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
 
 
 

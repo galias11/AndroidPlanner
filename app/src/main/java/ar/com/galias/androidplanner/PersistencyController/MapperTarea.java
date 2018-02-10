@@ -130,15 +130,22 @@ public class MapperTarea extends Mapper {
                         mapper.insert(e);
                     break;
                 case OP_UPDATE:
-                    for(EventoTarea e : t.getEventos().values())
-                        mapper.update(e);
+                    for(EventoTarea e : t.getEventos().values()) {
+                        if (e.isModified())
+                            mapper.update(e);
+                        else if (e.isCreated())
+                            mapper.insert(e);
+                    }
                     break;
                 case OP_DELETE:
                     for(EventoTarea e : t.getEventos().values())
                         mapper.delete(e);
                     break;
                 case OP_SELECT:
-                    ArrayList<Mappeable> events = mapper.select(null);
+                    SearchAttribute s = new SearchAttribute("tarea", SearchAttribute.OP_EQUAL, t.getId());
+                    ArrayList<SearchAttribute> attSearchList = new ArrayList<>();
+                    attSearchList.add(s);
+                    ArrayList<Mappeable> events = mapper.select(attSearchList);
                     Iterator it = events.iterator();
                     while(it.hasNext()){
                         EventoTarea e = (EventoTarea) it.next();

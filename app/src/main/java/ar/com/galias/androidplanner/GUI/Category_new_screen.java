@@ -1,11 +1,13 @@
 package ar.com.galias.androidplanner.GUI;
 
+import android.app.Activity;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,8 +29,8 @@ public class Category_new_screen implements Iface_new_category_screen{
 
     private int viewIndex;
 
-    private TextView nombreTextView;
-    private TextView descTextView;
+    private EditText nombreTextView;
+    private EditText descTextView;
     private ImageButton cancelButton;
     private ImageButton saveButton;
 
@@ -36,6 +38,13 @@ public class Category_new_screen implements Iface_new_category_screen{
         this.viewContext = viewContext;
         this.viewIndex = viewIndex;
 
+        inflateView();
+
+        setController(controller);
+
+    }
+
+    private void inflateView(){
         LayoutInflater inflater = (LayoutInflater) this.viewContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.view = inflater.inflate(R.layout.category_new_category, null);
         this.view.setVisibility(View.VISIBLE);
@@ -54,13 +63,10 @@ public class Category_new_screen implements Iface_new_category_screen{
         this.saveButton.setEnabled(false);
         this.cancelButton.setEnabled(true);
 
-        setController(controller);
-
-
     }
 
-    private void setUpTextViews(TextView textView){
-        textView.addTextChangedListener(new TextWatcher() {
+    private void setUpTextViews(EditText editText){
+        editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
 
@@ -68,17 +74,17 @@ public class Category_new_screen implements Iface_new_category_screen{
 
             @Override
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
-                checkTextViews();
+
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-
+                checkInput();
             }
         });
     }
 
-    private void checkTextViews(){
+    private void checkInput(){
         if(this.nombreTextView.getText().length() > 0 && this.nombreTextView.getText().length() <= 25
                 && this.descTextView.getText().length() > 0 && this.descTextView.getText().length() <= 200)
             this.saveButton.setEnabled(true);
@@ -138,5 +144,10 @@ public class Category_new_screen implements Iface_new_category_screen{
     public void clearScreen(){
         this.nombreTextView.setText("");
         this.descTextView.setText("");
+    }
+
+    @Override
+    public void activateReturnButton(Activity activity) {
+        this.cancelButton.callOnClick();
     }
 }
