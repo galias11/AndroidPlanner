@@ -80,7 +80,7 @@ public class MapperEventoTarea extends Mapper{
         values_01.put(ATT_CERRADO, e.isCerrado());
         values_01.put(ATT_TIPO, 0);
         values_01.put(ATT_UD_FREC_NOTIF, e.getUd_frec_notif());
-        values_01.put(ATT_CANT_FREC_NOTIF, e.getUd_frec_notif());
+        values_01.put(ATT_CANT_FREC_NOTIF, e.getCant_frec_notif());
         values_01.put(ATT_CANCELADO, e.isCancelado());
         insert_value_table.put(TABLE_01, values_01);
         ContentValues values_02 = new ContentValues();
@@ -95,7 +95,6 @@ public class MapperEventoTarea extends Mapper{
     @Override
     protected void assign_IDs(Mappeable m, HashMap<String, Long> new_id_list) {
         EventoTarea e = (EventoTarea) m;
-        System.out.println("New id: " + new_id_list.get(TABLE_01));
         e.setId(new_id_list.get(TABLE_01));
     }
 
@@ -121,7 +120,10 @@ public class MapperEventoTarea extends Mapper{
     @Override
     protected ArrayList<Mappeable> generateObjects(Cursor c) {
         ArrayList<Mappeable> resultSet = new ArrayList<Mappeable>();
+
         while(c.moveToNext()){
+            System.out.println(c.getLong(get_table_pos(TABLE_01, ATT_ID_EVENT)) + " --> " + (c.getInt(get_table_pos(TABLE_01, ATT_CANCELADO)) == 1));
+            System.out.println(c.getLong(get_table_pos(TABLE_01, ATT_ID_EVENT)) + " --> " + c.getInt(get_table_pos(TABLE_01, ATT_CERRADO)));
             EventoTarea e = new EventoTarea(
                             c.getLong(get_table_pos(TABLE_01, ATT_ID_EVENT)),
                             c.getString(get_table_pos(TABLE_01, ATT_TITULO)),
@@ -131,7 +133,9 @@ public class MapperEventoTarea extends Mapper{
                             c.getInt(get_table_pos(TABLE_01, ATT_CANT_FREC_NOTIF)),
                             c.getDouble(get_table_pos(TABLE_02, ATT_CANT_PLAN)),
                             c.getString(get_table_pos(TABLE_02, ATT_UD_MED)),
-                            c.getInt(get_table_pos(TABLE_02, ATT_PONDER)));
+                            c.getInt(get_table_pos(TABLE_02, ATT_PONDER)),
+                            c.getInt(get_table_pos(TABLE_01, ATT_CANCELADO)) == 1,
+                            c.getInt(get_table_pos(TABLE_01, ATT_CERRADO)) == 1);
             map_dependent_objects(e, OP_SELECT);
             resultSet.add(e);
 

@@ -23,7 +23,8 @@ public class AppLayerException extends Exception {
             "ERR: Value not valid, expected >= 0.",
             "ERR: Null category.",
             "ERR: Item not found.",
-            "ERR: Item already exists."
+            "ERR: Item already exists.",
+            "ERR: Event no active."
     };
 
 
@@ -41,6 +42,7 @@ public class AppLayerException extends Exception {
     public static final int ERR_CODE_NULL_CATEG = 11;
     public static final int ERR_CODE_NOT_FOUND = 12;
     public static final int ERR_CODE_ITEM_EXISTS = 13;
+    public static final int ERR_CODE_NOT_ACTIVE = 14;
 
     public AppLayerException(int err_code){
         if(err_code < 0 || err_code >= ERR_CODES.length){

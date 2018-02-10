@@ -76,6 +76,8 @@ public class Tarea extends Plan {
     public void agregarEvento(String titulo, String desc, Calendar fecPlan, double cantPlan,
                               String udMedida, int ponderacion, int ud_frec_notif,
                               int cant_frec_notif) throws AppLayerException {
+        if(!isActivo())
+            throw new AppLayerException(AppLayerException.ERR_CODE_ALREADY_CANC);
         if(titulo == null || titulo.isEmpty())
             throw new AppLayerException(AppLayerException.ERR_CODE_STRING_NULL);
         if(titulo.length() > 25)
@@ -110,7 +112,7 @@ public class Tarea extends Plan {
      * (EventoTarea) Event to be added. It must be a full initialized no null event, with
      * assigned id. (PRECOND: Must be checked by caller)
      */
-    public void agregarEvento(EventoTarea evento){
+    public void agregarEvento(EventoTarea evento) {
         this.eventos.put(evento.getId(), evento);
         actualizarAvance();
         super.setChanged();
@@ -135,6 +137,8 @@ public class Tarea extends Plan {
      */
     public void actualizarEvento(long id, double cantReal, Calendar fecReal, String obs,
                                  boolean cierre) throws AppLayerException {
+        if(!isActivo())
+            throw new AppLayerException(AppLayerException.ERR_CODE_ALREADY_CANC);
         if(!this.eventos.containsKey(id))
             throw new AppLayerException(AppLayerException.ERR_CODE_NON_EXISTENT_EVENT);
         if(!(cantReal >= 0.0))
@@ -158,8 +162,10 @@ public class Tarea extends Plan {
         Iterator<EventoTarea> it = this.eventos.values().iterator();
         while(it.hasNext()){
             EventoTarea e = it.next();
-            pond_total += e.getPonderacion();
-            pond_acum += e.getPonderacion() * e.getPorcAvance();
+            if(!e.isCancelado()) {
+                pond_total += e.getPonderacion();
+                pond_acum += e.getPonderacion() * e.getPorcAvance();
+            }
         }
         this.avanc = pond_total == 0.0 ? 0.0 : pond_acum / pond_total;
         super.setChanged();
@@ -177,11 +183,20 @@ public class Tarea extends Plan {
         Iterator<EventoTarea> it = this.eventos.values().iterator();
         while(it.hasNext()){
             EventoTarea e = it.next();
-            if(!e.isCancelado() || e.isCerrado())
+            if(!e.isCancelado())
                 e.cancelar();
         }
         super.cancelar();
         super.setChanged();
+    }
+
+
+    public void cancelarEvento(long idEvento) throws  AppLayerException{
+        EventoTarea e = eventos.get(idEvento);
+        if(e == null)
+            throw new AppLayerException(AppLayerException.ERR_CODE_NOT_FOUND);
+        e.cancelar();
+        setChanged();
     }
 
     /**
@@ -225,7 +240,7 @@ public class Tarea extends Plan {
         }}
         if(date_set.isEmpty())
             return null;
-        return date_set.last();
+        return date_set.first();
     }
 
 
@@ -244,6 +259,8 @@ public class Tarea extends Plan {
      */
     public void mdificarTiempoNotifEvento(long idEvento, int ud_tiempo_notif, int cant_tiempo_notif)
         throws AppLayerException {
+        if(!isActivo())
+            throw new AppLayerException(AppLayerException.ERR_CODE_ALREADY_CANC);
         if(!this.eventos.containsKey(idEvento))
             throw new AppLayerException(AppLayerException.ERR_CODE_NOT_FOUND);
         if(ud_tiempo_notif < 0 || ud_tiempo_notif > 3)
@@ -254,4 +271,5 @@ public class Tarea extends Plan {
         e.cambiarNotif(ud_tiempo_notif, cant_tiempo_notif);
         super.setChanged();
     }
+
 }

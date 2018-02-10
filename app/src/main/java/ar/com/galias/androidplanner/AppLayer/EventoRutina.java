@@ -62,11 +62,20 @@ public class EventoRutina extends Evento{
      * (PRECOND: Must be checked by the caller).
      */
     public EventoRutina(long id, String titulo, String desc, Calendar fecPlan,
-                        int ud_frec_notif, int cant_frec_notif){
+                        int ud_frec_notif, int cant_frec_notif, String obs, Calendar fecCierre,
+                        boolean realizado, boolean cerrado, boolean cancelado){
         super(titulo, desc, fecPlan, ud_frec_notif, cant_frec_notif);
         this.setId(id);
-        realizado = false;
-        obs = null;
+        this.realizado = realizado;
+        this.obs = obs;
+        try {
+            if (cerrado)
+                super.cerrar(fecCierre);
+            if (cancelado)
+                super.cancelar();
+        } catch (AppLayerException ex){
+
+        }
     }
 
     public boolean isRealizado(){
@@ -86,7 +95,10 @@ public class EventoRutina extends Evento{
      * (Calendar) Event's realization date. Must be a not null Calendar object.
      * (PRECOND: Must be checked by the caller).
      */
-    public void setRealizado(String obs, Calendar fecRealizacion){
+    public void setRealizado(String obs, Calendar fecRealizacion) throws
+    AppLayerException{
+        if(isCancelado() || isCerrado())
+            throw new AppLayerException(AppLayerException.ERR_CODE_NOT_ACTIVE);
         this.realizado = true;
         super.cerrar(fecRealizacion);
     }

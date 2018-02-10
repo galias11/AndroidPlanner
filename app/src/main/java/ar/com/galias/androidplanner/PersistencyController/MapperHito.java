@@ -37,6 +37,7 @@ public class MapperHito extends  Mapper{
         super(sqLiteAndroidConn);
         this.parent_table_id = parent_event_id;
         this.table_mapping.put(ATT_ID_HITO, TABLE_01);
+        this.table_mapping.put(ATT_ID_EVENTO, TABLE_01);
         this.table_mapping.put(ATT_FEC, TABLE_01);
         this.table_mapping.put(ATT_CANT_REAL, TABLE_01);
         this.table_mapping.put(ATT_OBS, TABLE_01);

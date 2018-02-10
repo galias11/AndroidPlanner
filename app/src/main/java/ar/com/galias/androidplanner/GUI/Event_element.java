@@ -45,7 +45,6 @@ public class Event_element {
     private ImageButton view_button;
     private ImageButton close_button;
 
-    private ImageButton closed_indicator;
     private ImageButton done_indicator;
     private ImageButton cancelled_indicator;
 
@@ -64,9 +63,8 @@ public class Event_element {
         this.avanc_progressBar = elementView.findViewById(R.id.event_element_progress_bar);
 
         this.view_button = elementView.findViewById(R.id.event_element_view);
-        this.close_button = elementView.findViewById(R.id.event_element_close);
+        this.close_button = elementView.findViewById(R.id.event_element_cancel);
 
-        this.closed_indicator = elementView.findViewById(R.id.event_element_closed_indicator);
         this.done_indicator = elementView.findViewById(R.id.event_element_done_indicator);
         this.cancelled_indicator = elementView.findViewById(R.id.event_element_active_indicator);
 
@@ -88,6 +86,10 @@ public class Event_element {
         this.date_textView.setText(formatDate(planned_date));
         this.avanc_progressBar.setProgress(avanc);
         this.avanc_textView.setText(avanc + "%");
+
+        this.view_button.setContentDescription(event_id + "");
+        System.out.println(" -->" + event_id);
+        this.close_button.setContentDescription(event_id + "");
     }
 
     private void setController(Controller c){
@@ -124,34 +126,27 @@ public class Event_element {
         return avanc;
     }
 
-    public void setCancelled(boolean status){
+    public void setCancelled(boolean status) {
         this.cancelled = status;
-        if(status)
+        if (status) {
             cancelled_indicator.setBackgroundTintList(this.viewContext.getResources().getColorStateList(R.color.red_900));
-        else
-            cancelled_indicator.setBackgroundTintList(this.viewContext.getResources().getColorStateList(R.color.grey_500));
-
-    }
-
-    public void setClosed(boolean status){
-        this.closed = status;
-        if(status) {
-            closed_indicator.setBackground(this.viewContext.getResources().getDrawable(android.R.drawable.ic_secure));
-            closed_indicator.setBackgroundTintList(this.viewContext.getResources().getColorStateList(R.color.yellow_500));
+            this.close_button.setEnabled(false);
+            this.view_button.setEnabled(false);
         } else {
-            closed_indicator.setBackground(this.viewContext.getResources().getDrawable(android.R.drawable.ic_partial_secure));
-            closed_indicator.setBackgroundTintList(this.viewContext.getResources().getColorStateList(R.color.grey_500));
+            cancelled_indicator.setBackgroundTintList(this.viewContext.getResources().getColorStateList(R.color.grey_500));
+            this.close_button.setEnabled(true);
+            this.view_button.setEnabled(true);
         }
+
     }
+
 
     public void setCompleted(boolean status){
         this.completed = status;
         if(status) {
             done_indicator.setBackground(this.viewContext.getResources().getDrawable(android.R.drawable.checkbox_on_background));
-            done_indicator.setBackgroundTintList(this.viewContext.getResources().getColorStateList(R.color.green_500));
         } else {
             done_indicator.setBackground(this.viewContext.getResources().getDrawable(android.R.drawable.checkbox_off_background));
-            done_indicator.setBackgroundTintList(this.viewContext.getResources().getColorStateList(R.color.grey_500));
         }
     }
 

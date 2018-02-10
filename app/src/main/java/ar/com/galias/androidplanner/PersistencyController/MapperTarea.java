@@ -110,6 +110,9 @@ public class MapperTarea extends Mapper {
                                     c.getString(get_table_pos(TABLE_01, ATT_DESC)),
                                     categoria_search);
                 t.setId(c.getLong(get_table_pos(TABLE_01, ATT_ID_PLAN)));
+                System.out.println(c.getLong(get_table_pos(TABLE_01, ATT_ID_PLAN)) + " - " + c.getInt(get_table_pos(TABLE_01, ATT_ACTIVO)));
+                if(c.getInt(get_table_pos(TABLE_01, ATT_ACTIVO)) == 0)
+                    t.cancelar();
                 map_dependent_objects(t, OP_SELECT);
                 resultSet.add(t);
             } catch(PersistencyException ex){
@@ -130,11 +133,18 @@ public class MapperTarea extends Mapper {
                         mapper.insert(e);
                     break;
                 case OP_UPDATE:
+                    EventoTarea lastInsertedEvent = null;
                     for(EventoTarea e : t.getEventos().values()) {
                         if (e.isModified())
                             mapper.update(e);
-                        else if (e.isCreated())
+                        else if (e.isCreated()) {
                             mapper.insert(e);
+                            lastInsertedEvent = e;
+                        }
+                    }
+                    if(lastInsertedEvent != null){
+                        t.getEventos().remove(-1);
+                        t.getEventos().put(lastInsertedEvent.getId(), lastInsertedEvent);
                     }
                     break;
                 case OP_DELETE:

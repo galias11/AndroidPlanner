@@ -98,16 +98,16 @@ public class SQLiteAndroidConn extends SQLiteOpenHelper implements Serializable{
         storage_map.put(TABLE_PLAN, plan_map);
 
         HashMap<String, Integer> tarea_map = new HashMap<String, Integer>();
-        tarea_map.put(ATT_TAREA_ID_TAREA, 5 + 0);
-        tarea_map.put(ATT_TAREA_AVANC, 5 + 1);
+        tarea_map.put(ATT_TAREA_ID_TAREA, 5 + 1);
+        tarea_map.put(ATT_TAREA_AVANC, 5 + 2);
         storage_map.put(TABLE_TAREA, tarea_map);
 
         HashMap<String, Integer> rutina_map = new HashMap<String, Integer>();
-        rutina_map.put(ATT_RUTINA_ID_RUTINA, 5 + 0);
-        rutina_map.put(ATT_RUTINA_FREC_TIPO, 5 + 1);
-        rutina_map.put(ATT_RUTINA_FREC_CANT, 5 + 2);
-        rutina_map.put(ATT_RUTINA_UD_FREC_NOTIF, 5 + 3);
-        rutina_map.put(ATT_RUTINA_CANT_FREC_NOTIF, 5 + 4);
+        rutina_map.put(ATT_RUTINA_ID_RUTINA, 5 + 1);
+        rutina_map.put(ATT_RUTINA_FREC_TIPO, 5 + 2);
+        rutina_map.put(ATT_RUTINA_FREC_CANT, 5 + 3);
+        rutina_map.put(ATT_RUTINA_UD_FREC_NOTIF, 5 + 4);
+        rutina_map.put(ATT_RUTINA_CANT_FREC_NOTIF, 5 + 5);
         storage_map.put(TABLE_RUTINA, rutina_map);
 
         HashMap<String, Integer> evento_map = new HashMap<String, Integer>();
@@ -119,24 +119,24 @@ public class SQLiteAndroidConn extends SQLiteOpenHelper implements Serializable{
         evento_map.put(ATT_EVENTO_TIPO, 5);
         evento_map.put(ATT_EVENTO_UD_FREC_NOTIF, 6);
         evento_map.put(ATT_EVENTO_CANT_FREC_NOTIF, 7);
-        evento_map.put(ATT_EVENTO_CANT_FREC_NOTIF, 8);
+        evento_map.put(ATT_EVENTO_FEC_CIERRE, 8);
         evento_map.put(ATT_EVENTO_CANCELADO, 9);
         storage_map.put(TABLE_EVENTO, evento_map);
 
         HashMap<String, Integer> evento_tarea_map = new HashMap<String, Integer>();
-        evento_tarea_map.put(ATT_EVENTO_ID_EVENT, 9 + 0);
-        evento_tarea_map.put(ATT_EVENTO_TAREA_CANT_PLAN, 9 + 1);
-        evento_tarea_map.put(ATT_EVENTO_TAREA_UD_MED, 9 + 2);
-        evento_tarea_map.put(ATT_EVENTO_TAREA_PONDER, 9 + 3);
-        evento_tarea_map.put(ATT_EVENTO_TAREA_CANT_ACT, 9 + 4);
-        evento_tarea_map.put(ATT_EVENTO_TAREA_TAREA, 9 + 5);
+        evento_tarea_map.put(ATT_EVENTO_ID_EVENT, 9 + 1);
+        evento_tarea_map.put(ATT_EVENTO_TAREA_CANT_PLAN, 9 + 2);
+        evento_tarea_map.put(ATT_EVENTO_TAREA_UD_MED, 9 + 3);
+        evento_tarea_map.put(ATT_EVENTO_TAREA_PONDER, 9 + 4);
+        evento_tarea_map.put(ATT_EVENTO_TAREA_CANT_ACT, 9 + 5);
+        evento_tarea_map.put(ATT_EVENTO_TAREA_TAREA, 9 + 6);
         storage_map.put(TABLE_EVENTO_TAREA, evento_tarea_map);
 
         HashMap<String, Integer> evento_rutina_map = new HashMap<String, Integer>();
-        evento_rutina_map.put(ATT_EVENTO_RUTINA_ID_EVENTO, 9 + 0);
-        evento_rutina_map.put(ATT_EVENTO_RUTINA_REALIZ, 9 + 1);
-        evento_rutina_map.put(ATT_EVENTO_RUTINA_RUTINA, 9 + 2);
-        evento_rutina_map.put(ATT_EVENTO_RUTINA_OBS, 9 + 3);
+        evento_rutina_map.put(ATT_EVENTO_RUTINA_ID_EVENTO, 9 + 1);
+        evento_rutina_map.put(ATT_EVENTO_RUTINA_REALIZ, 9 + 2);
+        evento_rutina_map.put(ATT_EVENTO_RUTINA_RUTINA, 9 + 3);
+        evento_rutina_map.put(ATT_EVENTO_RUTINA_OBS, 9 + 4);
         storage_map.put(TABLE_EVENTO_RUTINA, evento_rutina_map);
 
         HashMap<String, Integer> hito_map = new HashMap<String, Integer>();

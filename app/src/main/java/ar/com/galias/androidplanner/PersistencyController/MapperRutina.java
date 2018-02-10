@@ -119,6 +119,8 @@ public class MapperRutina extends Mapper {
                                       c.getInt(get_table_pos(TABLE_02, ATT_CANT_FREC_NOTIF))
                         );
                 r.setId(c.getLong(get_table_pos(TABLE_01, ATT_ID_PLAN)));
+                if(c.getInt(get_table_pos(TABLE_01, ATT_ACTIVO)) == 0)
+                    r.cancelar();
                 map_dependent_objects(r, OP_SELECT);
                 resultSet.add(r);
             } catch(PersistencyException ex){
@@ -148,6 +150,7 @@ public class MapperRutina extends Mapper {
                             mapper.update(e);
                         else if(e.isCreated())
                             mapper.insert(e);
+
                     }
                     break;
                 case OP_DELETE:

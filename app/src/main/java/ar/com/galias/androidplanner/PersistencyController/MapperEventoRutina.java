@@ -116,7 +116,12 @@ public class MapperEventoRutina extends Mapper{
                                               c.getString(get_table_pos(TABLE_01, ATT_DESC)),
                                               getDateTime(c.getString(get_table_pos(TABLE_01, ATT_FEC_PLAN))),
                                               c.getInt(get_table_pos(TABLE_01, ATT_UD_FREC_NOTIF)),
-                                              c.getInt(get_table_pos(TABLE_01, ATT_CANT_FREC_NOTIF)));
+                                              c.getInt(get_table_pos(TABLE_01, ATT_CANT_FREC_NOTIF)),
+                                              c.getString(get_table_pos(TABLE_02, ATT_OBS)),
+                                              getDateTime(c.getString(get_table_pos(TABLE_01, ATT_FEC_CIERRE))),
+                                              c.getInt(get_table_pos(TABLE_02, ATT_REALIZ)) == 1,
+                                              c.getInt(get_table_pos(TABLE_01, ATT_CERRADO)) == 1,
+                                              c.getInt(get_table_pos(TABLE_01, ATT_CANCELADO)) == 1);
             map_dependent_objects(e, OP_SELECT);
             resultSet.add(e);
         }

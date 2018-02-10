@@ -131,6 +131,8 @@ public class Rutina extends Plan {
      * is thrown.
      */
     private void agregarEvento(Calendar fecRealizacion) throws AppLayerException{
+        if(!isActivo())
+            throw new AppLayerException(AppLayerException.ERR_CODE_ALREADY_CANC);
         if(fecRealizacion == null)
             throw new AppLayerException(AppLayerException.ERR_CODE_NULL_DATE);
         this.eventos.add(new EventoRutina(this.getTitulo(), this.getDescripcion(),
@@ -144,7 +146,7 @@ public class Rutina extends Plan {
      * @param e
      * (EventoRutina) Event to be added. Must be a non null, fully initialized event.
      */
-    public void agregarEvento(EventoRutina e){
+    public void agregarEvento(EventoRutina e) {
         this.eventos.add(e);
     }
 
@@ -198,6 +200,8 @@ public class Rutina extends Plan {
      */
     public void actualizar(Calendar fecRealizacion, String obs, boolean mantieneFecha)
     throws AppLayerException{
+        if(!isActivo())
+            throw new AppLayerException(AppLayerException.ERR_CODE_ALREADY_CANC);
         if(fecRealizacion == null)
             throw new AppLayerException(AppLayerException.ERR_CODE_NULL_DATE);
         if(obs != null && obs.length() > 400)

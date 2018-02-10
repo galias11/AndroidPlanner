@@ -137,8 +137,8 @@ public class Controller extends AppCompatActivity {
 
 
     private void set_up_clickListener(){
-        final Toast errMsg = Toast.makeText(appContext, "", Toast.LENGTH_SHORT);
-        final Toast successMsg = Toast.makeText(appContext, "", Toast.LENGTH_SHORT);
+        final Toast errMsg = Toast.makeText(appContext, "", Toast.LENGTH_LONG);
+        final Toast successMsg = Toast.makeText(appContext, "", Toast.LENGTH_LONG);
 
         this.clickListener = new View.OnClickListener() {
             @Override
@@ -160,11 +160,10 @@ public class Controller extends AppCompatActivity {
                             mainScreen.addTaskElement(new_tarea.getId(), new_tarea.getTitulo(),
                                     new_tarea.getDescripcion(), venc,
                                     (int) new_tarea.getAvanc());
-                            successMsg.setText("Tarea creada");
+                            successMsg.setText("Tarea creada exitosamente creada.");
+                            successMsg.show();
                             newTaskScreen.clearScreen();
-                            mainScreen.clear_tasks();
-                            boolean[] filters = {false, false, true, false};
-                            load_tasks(filters, AplicationLayerController.ORDER_KEY_DATE, false, null);
+                            refreshMainScreen();
                             setCurrentScreen(mainScreen);
                         } catch(AppLayerException modelEx){
                             errMsg.setText(modelEx.getMessage());
@@ -190,6 +189,8 @@ public class Controller extends AppCompatActivity {
                             appModel.crearCategoria(newCategoryScreen.getNombre(), newCategoryScreen.getDesc());
                             newCategoryScreen.clearScreen();
                             newTaskScreen.refresh();
+                            successMsg.setText("Categoria creada exitosamente creada.");
+                            successMsg.show();
                             setCurrentScreen(newTaskScreen);
                         } catch (PersistencyException persistEx){
                             errMsg.setText(persistEx.getMessage());
@@ -211,6 +212,7 @@ public class Controller extends AppCompatActivity {
                         break;
                     case R.id.task_view_return:
                         viewTaskScreen.clearScreen();
+                        refreshMainScreen();
                         setCurrentScreen(mainScreen);
                         break;
                     case R.id.task_view_new_event:
@@ -233,7 +235,7 @@ public class Controller extends AppCompatActivity {
                                     newTaskEventScreen.getNotificationTimeType(),
                                     newTaskEventScreen.getNotificationTimeQuantity()
                             );
-                            successMsg.setText("Evento creado y agregado a la tarea.");
+                            successMsg.setText("Evento creado y agregado exitoamente a la tarea.");
                             successMsg.show();
                             viewTaskScreen.clearTasks();
                             newTaskEventScreen.clearScreen();
@@ -246,6 +248,25 @@ public class Controller extends AppCompatActivity {
                             errMsg.setText(ex_app.getMessage());
                             errMsg.show();
                         }
+                        break;
+                    case R.id.event_element_cancel:
+                        long close_event_id = Long.parseLong(view.getContentDescription().toString());
+                        long close_task_id = viewTaskScreen.getCurrent_task_ID();
+                        EventoTarea close_event = appModel.getTareas().get(close_task_id).getEventos().get(close_event_id);
+                        try {
+                            appModel.cancelarEventoTarea(close_task_id, close_event_id);
+                        } catch(AppLayerException app_ex){
+                            errMsg.setText(app_ex.getMessage());
+                            errMsg.show();
+                        } catch (PersistencyException per_ex){
+                            errMsg.setText(per_ex.getMessage());
+                            errMsg.show();
+                        }
+                        successMsg.setText("Evento exitosamente cancelado.");
+                        successMsg.show();
+                        viewTaskScreen.clearTasks();
+                        load_task_events(close_task_id);
+                        break;
                     default:
                         break;
                 }
@@ -253,12 +274,19 @@ public class Controller extends AppCompatActivity {
         };
     }
 
+    private void refreshMainScreen(){
+        mainScreen.clear_tasks();
+        boolean[] filters = {false, false, true, false};
+        load_tasks(filters, AplicationLayerController.ORDER_KEY_DATE, false, null);
+    }
+
     private void load_task_events(long task_id){
         Iterator<EventoTarea> task_event_it = appModel.getTareas().get(task_id).getEventos().values().iterator();
         while(task_event_it.hasNext()){
             EventoTarea e = task_event_it.next();
+            System.out.println(" --> " + e.getId());
             viewTaskScreen.addEvent(e.getId(), e.getTitulo(), e.getDesc(),
-                    e.getFecPlan(), e.isCancelado(), e.isCerrado(), e.getPorcAvance() == 1.0,
+                    e.getFecPlan(), e.isCancelado(), e.isCerrado(), e.isCompleted(),
                     (int) e.getCantActual());
         }
     }
@@ -284,11 +312,10 @@ public class Controller extends AppCompatActivity {
 
         try{
             this.appModel = new AplicationLayerController(this.appContext);
-            boolean[] filters = {false, false, true, false};
 
             initizalize_views();
 
-            load_tasks(filters, AplicationLayerController.ORDER_KEY_DATE, false, null);
+            refreshMainScreen();
 
             setCurrentScreen(mainScreen);
 

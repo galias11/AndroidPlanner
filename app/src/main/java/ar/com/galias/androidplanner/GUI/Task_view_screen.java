@@ -45,6 +45,8 @@ public class Task_view_screen implements Iface_view_task_screen{
     private LinearLayout events_area;
 
 
+
+
     public Task_view_screen(Context viewContext, Controller controller, int viewIndex){
         this.viewContext = viewContext;
         this.viewIndex = viewIndex;
@@ -79,7 +81,6 @@ public class Task_view_screen implements Iface_view_task_screen{
         Event_element new_event = new Event_element(this.viewContext, id, title, desc, plannedDate,
                 progress, this.controller);
         new_event.setCancelled(isCancelled);
-        new_event.setClosed(isClosed);
         new_event.setCompleted(isCompleted);
         this.events_area.addView(new_event.getSpaceView());
         this.events_area.addView(new_event.getElementView());

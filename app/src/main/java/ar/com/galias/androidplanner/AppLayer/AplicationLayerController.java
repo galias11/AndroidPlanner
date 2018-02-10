@@ -407,6 +407,15 @@ public class AplicationLayerController implements Serializable{
         persistency_controller.edit(rutinaSeleccionada);
     }
 
+    public void cancelarEventoTarea(long idTarea, long idEvento)
+    throws AppLayerException, PersistencyException{
+        Tarea t = tareas.get(idTarea);
+        if(t == null)
+            throw new AppLayerException(AppLayerException.ERR_CODE_NOT_FOUND);
+        t.cancelarEvento(idEvento);
+        persistency_controller.edit(t);
+    }
+
     public HashMap<String, Categoria> getCategorias(){
         return categorias;
     }

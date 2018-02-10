@@ -98,12 +98,16 @@ public abstract class Evento extends Mappeable implements Comparable{
     public void setId(long id){ this.id = id; }
 
     /**
-     * Closes this event.
+     * Closes this event, while in this state no operation can be made to it.
      * @param fecha
      * (Calendar) Must be a non null Calendar (date).
      * (PRECOND: Must be checked by the caller).
+     * @throws AppLayerException
+     * If event is not active an exception is thrown.
      */
-    public void cerrar(Calendar fecha){
+    public void cerrar(Calendar fecha) throws AppLayerException{
+        if(isCancelado() || isCerrado())
+            throw new AppLayerException(AppLayerException.ERR_CODE_NOT_ACTIVE);
         this.fecCierre = fecha;
         this.cerrado = true;
         super.setChanged();
@@ -117,8 +121,13 @@ public abstract class Evento extends Mappeable implements Comparable{
      * @param cant_frec_notif
      * (int) Event's notification quantity. Multiplies the unit to get notification time.
      * (PRECOND: Must be checked by the caller).
+     * @throws AppLayerException
+     * If event is not active an exception is thrown.
      */
-    public void cambiarNotif(int ud_frec_notif, int cant_frec_notif){
+    public void cambiarNotif(int ud_frec_notif, int cant_frec_notif)
+    throws AppLayerException{
+        if(isCancelado() || isCerrado())
+            throw new AppLayerException(AppLayerException.ERR_CODE_NOT_ACTIVE);
         this.ud_frec_notif = ud_frec_notif;
         this.cant_frec_notif = cant_frec_notif;
         super.setChanged();
@@ -127,11 +136,11 @@ public abstract class Evento extends Mappeable implements Comparable{
     /**
      * Cancels the event. From now on, it will be treated as if it was not registered.
      * @throws AppLayerException
-     * If this event is already cancelled, exception will be thrown.
+     * If event is not active an exception is thrown.
      */
     public void cancelar() throws AppLayerException {
-        if(this.cancelado = true)
-            throw new AppLayerException(AppLayerException.ERR_CODE_ALREADY_CANC);
+        if(isCancelado())
+            throw new AppLayerException(AppLayerException.ERR_CODE_NOT_ACTIVE);
         this.cancelado = true;
         super.setChanged();
     }
@@ -164,7 +173,13 @@ public abstract class Evento extends Mappeable implements Comparable{
         return !(today.before(min_date));
     }
 
+    public void cierreForzado(){
+        cerrado = true;
+    }
 
+    public void cancelacionForzada(){
+        cancelado = true;
+    }
 
 
 

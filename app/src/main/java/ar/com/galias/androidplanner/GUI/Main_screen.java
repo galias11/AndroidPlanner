@@ -121,11 +121,11 @@ public class Main_screen implements Iface_main_screen{
     @Override
     public void addTaskElement(long id, String title, String desc, String date, int progress){
         Task_element task = new Task_element(this.viewContext, id, title, desc, date, progress);
+        tareas_main_table.addView(task.getSeparator());
         tareas_main_table.addView(task.getTask_view());
         ImageButton new_view_task_button = task.getTask_view().findViewById(R.id.task_view_button);
         new_view_task_button.setOnClickListener(controller.getClickListener());
         view_task_button.add(new_view_task_button);
-        tareas_main_table.addView(task.getSeparator());
     }
 
     @Override

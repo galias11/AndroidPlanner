@@ -89,7 +89,6 @@ public abstract class Mapper implements Serializable{
         if(m == null)
             throw new PersistencyException(PersistencyException.ERR_MAPPER_NULL_OBJ);
         if(m.isModified()) {
-            System.out.println("entre 1 - ");
             HashMap<String, ContentValues> objMapping = generateInsertValues(m);
             HashMap<String, String> where_clause = generate_where_clause(m);
             HashMap<String, String[]> where_args = generate_where_args(m);

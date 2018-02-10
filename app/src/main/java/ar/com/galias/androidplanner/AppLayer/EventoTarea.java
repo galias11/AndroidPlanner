@@ -90,7 +90,7 @@ public class EventoTarea extends Evento{
      */
     public EventoTarea(long id, String titulo, String desc, Calendar fecPlan,
                        int ud_frec_notif, int cant_frec_notif, double cantPlaneada,
-                       String udMedida, int ponderacion){
+                       String udMedida, int ponderacion, boolean cancelado, boolean cerrado){
         super(titulo, desc, fecPlan, ud_frec_notif, cant_frec_notif);
         this.setId(id);
         this.cantPlaneada = cantPlaneada;
@@ -98,6 +98,10 @@ public class EventoTarea extends Evento{
         this.ponderacion = ponderacion;
         this.cantActual = 0.0;
         this.hitos = new ArrayList<Hito>();
+        if(cerrado)
+            super.cierreForzado();
+        if(cancelado)
+            super.cancelacionForzada();
     }
 
     public double getCantPlaneada() {
@@ -134,7 +138,10 @@ public class EventoTarea extends Evento{
      * @param cierraEvento
      * (boolean) Indicates if this entry finishes the event.
      */
-    public void actualizar(Calendar fec, double cantReal, String obs, boolean cierraEvento){
+    public void actualizar(Calendar fec, double cantReal, String obs, boolean cierraEvento)
+    throws AppLayerException{
+        if(isCancelado() || isCerrado())
+            throw new AppLayerException(AppLayerException.ERR_CODE_NOT_ACTIVE);
         this.hitos.add(new Hito(fec,  cantReal, obs, cierraEvento));
         if(cierraEvento)
             super.cerrar(fec);
@@ -152,7 +159,11 @@ public class EventoTarea extends Evento{
     public void actualizar(Hito h){
         this.hitos.add(h);
         if(h.isCierraEvento())
-            super.cerrar(h.getFecReal());
+            try{
+                cerrar(h.getFecReal());
+            } catch(AppLayerException ex){
+
+            }
         this.cantActual += h.getCantReal();
     }
 
@@ -169,12 +180,14 @@ public class EventoTarea extends Evento{
 
     public double getPorcAvance(){
         double porc = 0.0;
-        if(isCerrado() || isCancelado())
-            porc = 1.0;
-        else if(this.cantActual == 0.0)
-            porc = 0.0;
-        else
+        if(!(this.cantActual == 0.0))
             porc = this.cantActual / this.cantPlaneada;
         return porc;
     }
+
+    public boolean isCompleted(){
+        return getPorcAvance() == 1.0;
+    }
+
+
 }

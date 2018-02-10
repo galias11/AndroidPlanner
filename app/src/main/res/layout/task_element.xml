@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/layout_borders_shape">
+            android:background="@drawable/layout_borders_shape_task">
 
             <TableRow
                 android:layout_width="match_parent"
